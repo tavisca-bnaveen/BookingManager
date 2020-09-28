@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticateUsers } from 'src/app/Models/Users';
 import { AuthencticationService } from 'src/app/Services/Auth0/authenctication.service';
 
 @Component({
@@ -8,11 +9,19 @@ import { AuthencticationService } from 'src/app/Services/Auth0/authenctication.s
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authenctication : AuthencticationService) { }
+  private users:AuthenticateUsers;
+  constructor(private authenctication : AuthencticationService) {
+    this.users=new AuthenticateUsers();
+  }
+
   username:string;
   password:string;
   ngOnInit() {
-
+    
+    console.log("allusers"+JSON.stringify(this.users.GetAllUsers()));
+    
+    if(localStorage.getItem('TokenManager') == 'fool')
+        localStorage.removeItem('TokenManager');
   }
   onlogin(){
     console.log(this.username);
@@ -20,6 +29,8 @@ export class LoginComponent implements OnInit {
     
   }
   onGooglelogin(){
+    localStorage.setItem('TokenManager','fool');
     window.location.href= this.authenctication.GetAuth0Authorization();
+    
   }
 }

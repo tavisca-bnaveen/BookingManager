@@ -10,15 +10,20 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
   UserData:Profile
+  profilepicture:string
   @Input()
   set userdata(val: Profile) {
     this.UserData=val;
+   
+    
   }
-  get IsDelete(): Profile {
+  get userdata(): Profile {
     return this.UserData;
   }
   ngOnInit() {
-    console.log("header"+ JSON.stringify(this.UserData));
+    //console.log("header"+ JSON.stringify(this.UserData));
+    this.profilepicture=this.UserData.picture
+    console.log(this.profilepicture)
   }
 
 }

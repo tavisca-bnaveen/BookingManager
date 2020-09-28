@@ -1,10 +1,13 @@
 .header{
     height: 50px;
     width: 100%;
-    background-color: blue;
+    background-color: #f3f3f3;
     display: flex;
 }
 .header-name{
      margin: auto auto;  
      vertical-align: middle;
+}
+.user-details{
+    float: right;
 }

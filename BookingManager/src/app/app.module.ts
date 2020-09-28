@@ -7,6 +7,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { PostBookingComponent } from './Components/post-booking/post-booking.component';
 import { HttpClientModule } from "@angular/common/http";
+import { AuthGuard } from './Guard/auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,7 @@ import { HttpClientModule } from "@angular/common/http";
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
