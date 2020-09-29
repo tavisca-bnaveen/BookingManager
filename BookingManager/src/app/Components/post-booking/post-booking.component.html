@@ -1,4 +1,32 @@
+<div class="Post-booking">
 <app-header *ngIf="header" [userdata]="CurrentUser"></app-header>
-<p>
-  post-booking works!
-</p>
+<div>
+  <button (click)="GetMyTrips()">
+    Get My Trips
+  </button>
+</div>
+  <div *ngIf="showtrips">
+    <div class="trips-header">
+      <b>
+      <span class="trip-data">TripId</span>
+      <span class="trip-data">Booked</span>
+      <span class="trip-data">TotalCost</span>
+      <span class="trip-data">Status</span>
+      </b>
+    </div>
+    <div *ngFor="let trip of AllTrips" class="trips-row">
+      <span class="trip-data">{{trip.Id}}</span>
+      <span class="trip-data">{{trip.BookedDate}}</span>
+      <span class="trip-data">{{trip.TotalCost}}</span>
+      <span class="trip-data">{{trip.status}}</span>
+      <span class="trip-data" (click)="ViewItinerayDetails(trip)"> View Itinerary </span>
+    </div>
+  </div>
+<div *ngIf="ShowDetails">
+<app-flight *ngIf="CurrentTrip.Flight" [TripId]="TripId" [Flightdetails]="CurrentTrip.Flight"></app-flight>
+
+<app-hotel  *ngFor="let hotel of CurrentTrip.Hotel" [TripId]="TripId" [Hoteldetails]="hotel"></app-hotel>
+<app-car *ngFor="let Car of CurrentTrip.Car" [TripId]="TripId" [Cardetails]="Car"></app-car>
+</div>
+</div>
+

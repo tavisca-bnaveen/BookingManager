@@ -1,0 +1,18 @@
+<div class="Flight-card">
+  
+  <div class="each-route" *ngFor="let dest of flightdetails.destination;let i = index">
+  
+  <div class="route-details">
+    <img src="../../../assets/FlightIcon.png" class="flight-icon">
+    <span>{{flightdetails.source[i]}}</span>
+    <span>	&#8594;</span>
+    <span>{{flightdetails.destination[i]}}</span>
+    
+  </div>
+  <div>
+    <span>Flight starts at {{flightdetails.dates[i]}}</span>
+    <span>Estimated arrival after {{flightdetails.journeytimes[i]}}</span>
+  </div>
+
+  </div>
+</div>

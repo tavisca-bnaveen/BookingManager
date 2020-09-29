@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Profile } from 'src/app/Models/UserProfile';
 
 @Component({
@@ -8,14 +9,12 @@ import { Profile } from 'src/app/Models/UserProfile';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
   UserData:Profile
   profilepicture:string
   @Input()
   set userdata(val: Profile) {
     this.UserData=val;
-   
-    
   }
   get userdata(): Profile {
     return this.UserData;
@@ -25,5 +24,8 @@ export class HeaderComponent implements OnInit {
     this.profilepicture=this.UserData.picture
     console.log(this.profilepicture)
   }
-
+  Logout(){
+    localStorage.removeItem('TokenManager');
+    this.router.navigateByUrl('Login');
+  }
 }

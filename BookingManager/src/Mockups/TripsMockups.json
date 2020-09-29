@@ -1,0 +1,37 @@
+[{
+	"Id":"12345",
+	"BookedDate":"20-09-2020",
+	"Flight":{
+				"PNR":"QWERTY",
+				"Type":"Roundtrip",
+				"source":["Las","Lax"],
+				"destination":["Lax","Las"],
+				"dates":["20-9-2020 12:30PM","21-9-2020 12:30PM"],
+				"Status":"Confirm",
+				"cost":"200",
+				"PassengerCount":"2",
+				"journeytimes":["5:00","5:30"]
+				},
+	"Hotel":[{
+				"Id":"01",
+				"CheckIn":"01-10-2020",
+				"Checkout":"05-10-2020",
+				"Location":"Las",
+				"TotalPrice":"200",
+				"PeopleCount":"2",
+				"TravellerInfo": "Naveen",
+				"Rating":"3.5",
+				"status":"Confirm"
+				}],
+	"Car":[{
+			"Id":"01",
+			"PickUp":"Las",
+			"DropOff":"Lax",
+			"Pickupdate":"01-10-2020",
+			"DropOffDate":"05-10-2020",
+			"TotalCost":"500",
+			"status":"Confirm"
+			}],
+	"TotalCost":"900",
+	"status":"Confirmed"
+}]

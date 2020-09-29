@@ -1,10 +1,15 @@
 <div class="header">
+  <img src="../../../assets/mainlogo.jpg" class="main-logo">
   <div class="header-name">
   Post Booking Manager
   </div>
+  <div (click)="Logout()" class="logout">Logout</div>
   <div class="user-details">
     <div class="profile">
-      <img [src]="profilepicture">
+      <div><img [src]="profilepicture" class="profile-picture"></div>
+      <div>
+        <span> {{UserData.name}}  </span>
+      </div>
     </div>
      
   </div>

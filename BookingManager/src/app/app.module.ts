@@ -8,18 +8,26 @@ import { HeaderComponent } from './Components/header/header.component';
 import { PostBookingComponent } from './Components/post-booking/post-booking.component';
 import { HttpClientModule } from "@angular/common/http";
 import { AuthGuard } from './Guard/auth.guard';
+import { FlightComponent } from './Components/flight/flight.component';
+import { HotelComponent } from './Components/hotel/hotel.component';
+import { CarComponent } from './Components/car/car.component';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    PostBookingComponent
+    PostBookingComponent,
+    FlightComponent,
+    HotelComponent,
+    CarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

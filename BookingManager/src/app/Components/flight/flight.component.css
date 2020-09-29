@@ -1,0 +1,11 @@
+.flight-icon{
+    width: 50px;
+}
+.route-details{
+    font-size:24px;
+    display: table;
+} 
+.route-details span{
+    vertical-align: super;
+    padding-left: 5px;
+}
