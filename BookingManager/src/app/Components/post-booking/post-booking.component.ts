@@ -45,6 +45,8 @@ export class PostBookingComponent implements OnInit {
         this.CurrentUser=data;
         this.UserData.emit(this.CurrentUser);
         localStorage.setItem('TokenManager',this.CurrentUser.email);
+        localStorage.setItem('Name',this.CurrentUser.name);
+        localStorage.setItem('picture',this.CurrentUser.picture);
         this.header=true
         this.AllUsers.AddUser(this.CurrentUser);
       },
@@ -65,10 +67,6 @@ export class PostBookingComponent implements OnInit {
         this.router.navigateByUrl('Login');
       }
     }
-
-
-  }
-  GetMyTrips(){
     this.tripservice.GetAllTrips(localStorage.getItem('TokenManager')).subscribe(
       data=>{
         this.AllTrips=data;
@@ -78,11 +76,22 @@ export class PostBookingComponent implements OnInit {
       }
     );
     
+
+  }
+  GetMyTrips(){
+    this.tripservice.GetAllTrips(localStorage.getItem('TokenManager')).subscribe(
+      data=>{
+        this.AllTrips=data;
+        
+      }
+    );
+    
   }
   ViewItinerayDetails(trip:Trip){
     this.TripId=trip.Id;
     this.CurrentTrip=trip;
-    this.ShowDetails=true;
+    localStorage.setItem('TripId',trip.Id);
+    this.router.navigateByUrl('Itineray');
   }
 
 }

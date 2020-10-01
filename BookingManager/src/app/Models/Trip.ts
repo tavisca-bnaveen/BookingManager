@@ -1,6 +1,7 @@
 import { Car } from './Car';
 import { Flight } from './Flight';
 import { Hotel } from './Hotel';
+import { OverallStatus } from './OverallStatus';
 
 export class Trip{
     Id:string;
@@ -9,5 +10,5 @@ export class Trip{
     Hotel:Array<Hotel>;
     Car:Array<Car>;
     TotalCost:string;
-    status:string;
+    status:OverallStatus;
 }

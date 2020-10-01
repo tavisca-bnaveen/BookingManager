@@ -8,7 +8,7 @@ import { Profile } from 'src/app/Models/UserProfile';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  Name:string;
   constructor(private router: Router) { }
   UserData:Profile
   profilepicture:string
@@ -19,13 +19,19 @@ export class HeaderComponent implements OnInit {
   get userdata(): Profile {
     return this.UserData;
   }
+
   ngOnInit() {
     //console.log("header"+ JSON.stringify(this.UserData));
-    this.profilepicture=this.UserData.picture
+    this.profilepicture=localStorage.getItem('picture');
+    this.Name=localStorage.getItem('Name');
     console.log(this.profilepicture)
   }
   Logout(){
-    localStorage.removeItem('TokenManager');
+    localStorage.clear();
     this.router.navigateByUrl('Login');
+  }
+  home(){
+    console.log("try to go home");
+    this.router.navigateByUrl('PostBooking');
   }
 }

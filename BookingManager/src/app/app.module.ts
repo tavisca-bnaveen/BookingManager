@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/login/login.component';
@@ -12,6 +12,7 @@ import { FlightComponent } from './Components/flight/flight.component';
 import { HotelComponent } from './Components/hotel/hotel.component';
 import { CarComponent } from './Components/car/car.component';
 import { CommonModule } from '@angular/common';
+import { ItineraryComponent } from './Components/itinerary/itinerary.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,14 +21,15 @@ import { CommonModule } from '@angular/common';
     PostBookingComponent,
     FlightComponent,
     HotelComponent,
-    CarComponent
+    CarComponent,
+    ItineraryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,ReactiveFormsModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

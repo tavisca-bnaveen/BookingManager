@@ -1,5 +1,5 @@
 <div class="Flight-card">
-  
+  <div class="Flight-Details">
   <div class="each-route" *ngFor="let dest of flightdetails.destination;let i = index">
   
   <div class="route-details">
@@ -10,9 +10,23 @@
     
   </div>
   <div>
-    <span>Flight starts at {{flightdetails.dates[i]}}</span>
-    <span>Estimated arrival after {{flightdetails.journeytimes[i]}}</span>
+    <span>Depature- <strong> {{flightdetails.DeparatureTimes[i]}}</strong></span>
+    <span>Arrival- <strong>{{flightdetails.ArrivalTimes[i]}}</strong></span>
   </div>
-
+  <div>
+    <span><strong>{{flightdetails.AirlineDetails[i]}}</strong></span>
+  </div>
+  </div>
+  </div>
+  <div class="Flight-operations">
+    <div>
+      <span [class]="flightdetails.Status"><strong>{{flightdetails.Status}}</strong></span>
+    </div>
+    <div class="Check-staus-Flight">
+      <button>Check Status</button>
+    </div>
+    <div class="Cancel-Flight">
+      <button>Cancel Flight</button>
+    </div>
   </div>
 </div>

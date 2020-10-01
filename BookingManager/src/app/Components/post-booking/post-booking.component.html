@@ -1,9 +1,9 @@
-<div class="Post-booking">
-<app-header *ngIf="header" [userdata]="CurrentUser"></app-header>
+<div *ngIf="header" class="Post-booking">
+<app-header  [userdata]="CurrentUser"></app-header>
 <div>
-  <button (click)="GetMyTrips()">
+  <!-- <button (click)="GetMyTrips()">
     Get My Trips
-  </button>
+  </button> -->
 </div>
   <div *ngIf="showtrips">
     <div class="trips-header">
@@ -22,11 +22,5 @@
       <span class="trip-data" (click)="ViewItinerayDetails(trip)"> View Itinerary </span>
     </div>
   </div>
-<div *ngIf="ShowDetails">
-<app-flight *ngIf="CurrentTrip.Flight" [TripId]="TripId" [Flightdetails]="CurrentTrip.Flight"></app-flight>
-
-<app-hotel  *ngFor="let hotel of CurrentTrip.Hotel" [TripId]="TripId" [Hoteldetails]="hotel"></app-hotel>
-<app-car *ngFor="let Car of CurrentTrip.Car" [TripId]="TripId" [Cardetails]="Car"></app-car>
-</div>
 </div>
 

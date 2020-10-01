@@ -6,11 +6,10 @@ export class Flight{
     Type: FlightType;
     source: Array<string>;
     destination: Array<string>;
-    dates: Array<string>;
-    journeytimes:Array<string>;
+    DeparatureTimes: Array<string>;
+    ArrivalTimes:Array<string>;
     Status:FlightStatus;
     cost:Array<string>;
     PassengerCount:string;
-    FlightDetails:Array<string>;
-
+    AirlineDetails:Array<string>;
 }
