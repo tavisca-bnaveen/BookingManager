@@ -1,0 +1,43 @@
+.header{
+    height: 75px;
+    width: 100%;
+    display: flex;
+    background-color: white;
+}
+.main-logo{
+    width: 100px;
+    cursor: pointer;
+}
+.header-name{
+     margin: auto auto;  
+     vertical-align: middle;
+     font-size: 24px;
+}
+.user-details{
+    float: right;
+    margin-right: 1rem;
+    text-align: center;
+    font-size: 18px;
+}
+.profile-picture{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.logout{
+    cursor: pointer;
+}
+.profile-dropdown{
+    display: none;
+    position: absolute;
+    padding: 10px;
+    min-width: 150px;
+    z-index: 1;
+    right: 5px;
+    box-shadow: 0px 2px 4px  rgba(0,0,0,0.2);
+    background-color: white;
+}
+.user-details:hover .profile-dropdown{
+    display: block;
+}

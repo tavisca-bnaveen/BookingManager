@@ -1,0 +1,46 @@
+.itinerary{
+    background-color: #f3f3f3;
+    min-width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.margin-top-1{
+    margin-top: 1rem;
+}
+.trip-details-status{
+    width: 50%;
+    display: flex;
+    margin: 0 auto;
+    padding-top: 1rem;
+    
+}
+.trip-details-status .trip-details{
+    width: 75%;
+}
+.trip-details-status .trip-overall-status{
+    width: 25%;
+    text-align: end;
+}
+.trip-overall-status span{
+    font-size: 24px;
+    
+}
+.trip-overall-status .Confirmed{
+    color: green;
+    font-weight: 600;
+}
+.trip-overall-status .Cancelled{
+    color: red;
+    font-weight: 600;
+}
+.trip-overall-status .PartialCancelled{
+    color: orangered;
+    font-weight: 600;
+}
+.trip-overall-status .ScheduleChanged{
+    color: orange;
+    font-weight: 600;
+}

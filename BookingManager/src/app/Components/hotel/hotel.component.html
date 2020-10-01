@@ -1,0 +1,33 @@
+<div class="Hotel-Card">
+  <div class="Hotel-view">
+    <div class=" Hotel-details">
+      <div class="Hotel-name">
+      <img src="../../../assets/hotel-icon.webp" class="hotel-icon">
+      <span class="location-name">{{hoteldetails.Name}}({{hoteldetails.Location}})</span>
+        </div>
+        <div class="check-in-out">
+          <span>Checkin- <strong>{{hoteldetails.CheckIn}} </strong></span>
+          <span class="margin-left-1">Checkout- <strong>{{hoteldetails.Checkout}} </strong></span>
+      </div>
+      <div class="tenants-details">
+        <span class="tenants">Guest/s <strong> {{hoteldetails.TravellerInfo}}</strong> </span>
+        <span class="margin-left-1"> People <strong>{{hoteldetails.PeopleCount}}</strong></span>
+      </div>
+      <p>Rating <strong>{{hoteldetails.Rating}}</strong> </p>
+      <!-- <p class="Hotel-price">Total Hotel Price- <strong>{{hoteldetails.TotalPrice | currency:'USD'}}</strong></p> -->
+    </div>
+    <div class="Hotel-status">
+      <div>
+        <strong><span [class]="hoteldetails.status">{{hoteldetails.status}}</span></strong>
+      </div>
+      <div class="Check-staus-Hotel">
+        <button>Check Status</button>
+      </div>
+      <div class="Cancel-Hotel">
+        <button>Cancel Hotel</button>
+      </div>
+    </div>
+  </div>
+
+  
+</div>

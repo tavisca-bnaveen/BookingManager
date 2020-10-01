@@ -1,0 +1,20 @@
+<div class="header">
+  <img src="../../../assets/mainlogo.jpg" class="main-logo" (click)="home()">
+  <div class="header-name">
+  Post Booking Manager
+  </div>
+  <!-- <div (click)="Logout()" class="logout">Logout</div> -->
+  <div class="user-details">
+    <div class="profile">
+      <div><img [src]="profilepicture" class="profile-picture" ></div>
+      <div>
+        <span> {{Name}}  </span>
+      </div>
+    </div>
+    <div class="profile-dropdown">
+      <p (click)="Logout()" class="logout">Logout</p>
+    </div>
+     
+  </div>
+
+</div>

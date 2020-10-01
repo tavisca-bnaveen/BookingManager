@@ -1,0 +1,57 @@
+.flight-icon{
+    width: 50px;
+}
+.route-details{
+    font-size:24px;
+    display: table;
+} 
+.route-details span{
+    vertical-align: super;
+    padding-left: 5px;
+}
+.Flight-card{
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 0.4px 0 rgba(0,0,0,0.1);
+    border:none;
+    border-radius: 5px;
+    width: 50%;
+    margin: 10px auto;
+    display: flex;
+}
+.Flight-Details{
+    width: 75%;
+}
+.Flight-operations{
+    width:25%;
+    text-align: end;
+}
+
+.Flight-operations .Confirm{
+    color: green ;
+}
+.Flight-operations .Cancel{
+    color: red ;
+}
+.Flight-operations .Partial{
+    color: yellow ;
+}
+.Flight-operations .MajorSC,.Flight-operations .MinorSC{
+    color: orange ;
+}
+.Flight-operations span{
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.Flight-operations button{
+    appearance: none;
+    background-color: #0D74AF; 
+    padding: 8px;
+    border: 1.5px solid #0D74AF; 
+    color: white; 
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top:5px;
+}

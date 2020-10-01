@@ -1,0 +1,26 @@
+<div *ngIf="header" class="Post-booking">
+<app-header  [userdata]="CurrentUser"></app-header>
+<div>
+  <!-- <button (click)="GetMyTrips()">
+    Get My Trips
+  </button> -->
+</div>
+  <div *ngIf="showtrips">
+    <div class="trips-header">
+      <b>
+      <span class="trip-data">TripId</span>
+      <span class="trip-data">Booked</span>
+      <span class="trip-data">TotalCost</span>
+      <span class="trip-data">Status</span>
+      </b>
+    </div>
+    <div *ngFor="let trip of AllTrips" class="trips-row">
+      <span class="trip-data">{{trip.Id}}</span>
+      <span class="trip-data">{{trip.BookedDate}}</span>
+      <span class="trip-data">{{trip.TotalCost}}</span>
+      <span class="trip-data">{{trip.status}}</span>
+      <span class="trip-data" (click)="ViewItinerayDetails(trip)"> View Itinerary </span>
+    </div>
+  </div>
+</div>
+

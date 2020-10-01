@@ -1,0 +1,65 @@
+.Hotel-Card{
+    margin-top:1rem;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 0.4px 0 rgba(0,0,0,0.1);
+    border:none;
+    border-radius: 5px;
+    width: 50%;
+    margin: 10px auto;
+}
+.hotel-icon{
+    width: 50px;
+    height: 35px;
+}
+.Hotel-details{
+    vertical-align: super;
+    width: 70%;
+}
+.location-name{
+    vertical-align: super;
+}
+.Hotel-status .Confirm{
+    color: green;
+}
+.Hotel-status .Cancel{
+    color:red;
+}
+.Hotel-name-status{
+    display: flex;
+}
+.Hotel-status{
+    width: 30%;
+    text-align: end;
+}
+.Hotel-status span{
+    
+    font-weight: 600;
+    font-size: 20px;
+    margin-top:10px;
+}
+.margin-left-1{
+    margin-left: 1rem;
+}
+.Hotel-view{
+    width: 100%;
+    display: flex;
+}
+.Hotel-name{
+    font-size: 24px;
+}
+button{
+    appearance: none;
+    background-color: #0D74AF; 
+    padding: 8px;
+    border: 1.5px solid #0D74AF; 
+    color: white; 
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top:5px;
+}
+.Hotel-price{
+    font-size: 20px;
+    margin: 0;
+}

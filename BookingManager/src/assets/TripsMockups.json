@@ -1,0 +1,84 @@
+[{
+	"Id":"12345",
+	"BookedDate":"20-09-2020",
+	"Flight":{
+				"PNR":"QWERTY",
+				"Type":"Roundtrip",
+				"source":["Las","Lax"],
+				"destination":["Lax","Las"],
+				"DeparatureTimes":["20-9-2020 12:30PM","21-9-2020 12:30PM"],
+				"ArrivalTimes":["20-9-2020 5:00PM","21-9-2020 5:30PM"],
+				"Status":"Confirm",
+				"cost":"200",
+				"PassengerCount":"2",
+				
+				"AirlineDetails":["American Airlines","Delta Airlines"]
+				},
+	"Hotel":[{
+				"Id":"01",
+				"CheckIn":"01-10-2020",
+				"Checkout":"05-10-2020",
+				"Location":"Las",
+				"Name":"Novotel Pvt limited",
+				"TotalPrice":"200",
+				"PeopleCount":"2",
+				"TravellerInfo": "Naveen",
+				"Rating":"3.5",
+				"status":"Confirm"
+				}],
+	"Car":[{
+			"Id":"01",
+			"Name":"BMW Economy",
+			"PickUp":"Las",
+			"DropOff":"Lax",
+			"Pickupdate":"01-10-2020",
+			"DropOffDate":"05-10-2020",
+			"TotalCost":"500",
+			"status":"Confirm"
+			}],
+	"TotalCost":"900",
+	"status":"Confirmed"
+},
+{
+	"Id":"54321",
+	"BookedDate":"2-09-2020",
+
+	"Hotel":[{
+				"Id":"01",
+				"CheckIn":"01-10-2020",
+				"Checkout":"05-10-2020",
+				"Location":"Las",
+				"Name":"Hyaat PVT limited",
+				"TotalPrice":"200",
+				"PeopleCount":"2",
+				"TravellerInfo": "Naveen",
+				"Rating":"3.5",
+				"status":"Confirm"
+				},
+				{
+					"Id":"02",
+					"CheckIn":"11-10-2020",
+					"Checkout":"15-10-2020",
+					"Location":"NYC",
+					"Name":"OyO Vamsi PVT limited",
+					"TotalPrice":"2000",
+					"PeopleCount":"1",
+					"TravellerInfo": "Bora",
+					"Rating":"4.5",
+					"status":"Confirm"
+				}
+			],
+	"Car":[{
+			"Id":"01",
+			"Name":"BMW Economy",
+			"PickUp":"Las",
+			"DropOff":"Lax",
+			"Pickupdate":"01-10-2020",
+			"DropOffDate":"05-10-2020",
+			"TotalCost":"500",
+			"status":"Cancel"
+			}],
+	"TotalCost":"900",
+	"status":"PartialCancelled"
+}
+]
