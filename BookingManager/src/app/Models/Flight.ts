@@ -11,5 +11,6 @@ export class Flight{
     Status:FlightStatus;
     cost:Array<string>;
     PassengerCount:string;
+    FlightDetails:Array<string>;
 
 }

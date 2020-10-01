@@ -50,14 +50,17 @@ export class PostBookingComponent implements OnInit {
       },
       error =>{
         this.header=true
-        if(!localStorage.getItem('TokenManager') && localStorage.getItem('TokenManager').toLowerCase() !='fool'){
+        
+        //if(!localStorage.getItem('TokenManager') && localStorage.getItem('TokenManager').toLowerCase() !='fool'){
+          localStorage.removeItem('TokenManager');
           this.router.navigateByUrl('Login');
-        }
+        //}
       }
     )
     }
     else{
       this.header=true
+      
       if(!localStorage.getItem('TokenManager') && localStorage.getItem('TokenManager').toLowerCase() !='fool'){
         this.router.navigateByUrl('Login');
       }

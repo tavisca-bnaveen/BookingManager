@@ -8,7 +8,9 @@
     background-size: cover;
 }
 .trip-data{
-    margin-left: 5%;
+    display: inline-block;
+    width: 15%;
+
 }
 .trips-header{
     margin-top: 1rem;

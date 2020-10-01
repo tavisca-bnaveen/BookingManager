@@ -10,13 +10,15 @@
 				"Status":"Confirm",
 				"cost":"200",
 				"PassengerCount":"2",
-				"journeytimes":["5:00","5:30"]
+				"journeytimes":["5:00","5:30"],
+				"FlightDetails":["American Airline","Delta Airlines"]
 				},
 	"Hotel":[{
 				"Id":"01",
 				"CheckIn":"01-10-2020",
 				"Checkout":"05-10-2020",
 				"Location":"Las",
+				"Name":"Novotel Pvt limited",
 				"TotalPrice":"200",
 				"PeopleCount":"2",
 				"TravellerInfo": "Naveen",
@@ -25,6 +27,7 @@
 				}],
 	"Car":[{
 			"Id":"01",
+			"Name":"BMW Economy",
 			"PickUp":"Las",
 			"DropOff":"Lax",
 			"Pickupdate":"01-10-2020",
@@ -44,6 +47,7 @@
 				"CheckIn":"01-10-2020",
 				"Checkout":"05-10-2020",
 				"Location":"Las",
+				"Name":"Hyaat PVT limited",
 				"TotalPrice":"200",
 				"PeopleCount":"2",
 				"TravellerInfo": "Naveen",
@@ -55,6 +59,7 @@
 					"CheckIn":"11-10-2020",
 					"Checkout":"15-10-2020",
 					"Location":"NYC",
+					"Name":"OyO Vamsi PVT limited",
 					"TotalPrice":"2000",
 					"PeopleCount":"1",
 					"TravellerInfo": "Bora",
@@ -64,14 +69,15 @@
 			],
 	"Car":[{
 			"Id":"01",
+			"Name":"BMW Economy",
 			"PickUp":"Las",
 			"DropOff":"Lax",
 			"Pickupdate":"01-10-2020",
 			"DropOffDate":"05-10-2020",
 			"TotalCost":"500",
-			"status":"Confirm"
+			"status":"Cancel"
 			}],
 	"TotalCost":"900",
-	"status":"Confirmed"
+	"status":"Partial Cancel"
 }
 ]

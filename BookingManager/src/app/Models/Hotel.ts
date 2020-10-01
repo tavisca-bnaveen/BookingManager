@@ -4,6 +4,7 @@ export class Hotel{
     Id:string;
     CheckIn:string;
     Checkout:string;
+    Name:string;
     Location: string;
     TotalPrice:string;
     PeopleCount:string;

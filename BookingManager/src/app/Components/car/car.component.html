@@ -1,3 +1,34 @@
-<p>
-  car works! {{tripid}} {{cardetails.PickUp}}
-</p>
+<div class="Car-Card">
+  <div class="Car-view">
+    <div class=" Car-details">
+      <div class="Car-name">
+      <img src="../../../assets/caricon.png" class="Car-icon">
+      <span class="location-name">{{cardetails.Name}}</span>
+        </div>
+        <div class="Pickup">
+          <span>Pickup- <strong>{{cardetails.PickUp}} </strong></span>
+          <span class="margin-left-1">Date- <strong>{{cardetails.Pickupdate}} </strong></span>
+      </div>
+      <div class="Dropoff">
+        <span>Droff- <strong>{{cardetails.DropOff}} </strong></span>
+        <span class="margin-left-1">Date- <strong>{{cardetails.DropOffDate}} </strong></span>
+    </div>
+      
+      <p class="Car-price">Total Car Price- <strong>{{cardetails.TotalCost | currency:'USD'}}</strong></p>
+      
+    </div>
+    <div class="Car-status">
+      <div>
+        <strong><span [class]="cardetails.status">{{cardetails.status}}</span></strong>
+      </div>
+      <div class="Check-staus-Car">
+        <button>Check Status</button>
+      </div>
+      <div class="Cancel-Car">
+        <button>Cancel Car</button>
+      </div>
+    </div>
+  </div>
+
+  
+</div>
