@@ -6,7 +6,8 @@ export class Hotel{
     Checkout:string;
     Name:string;
     Location: string;
-    TotalPrice:string;
+    cost:string;
+    discount:string;
     PeopleCount:string;
     TravellerInfo:string;
     Rating:string;

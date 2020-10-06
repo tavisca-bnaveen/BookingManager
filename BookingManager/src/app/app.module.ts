@@ -13,6 +13,7 @@ import { HotelComponent } from './Components/hotel/hotel.component';
 import { CarComponent } from './Components/car/car.component';
 import { CommonModule } from '@angular/common';
 import { ItineraryComponent } from './Components/itinerary/itinerary.component';
+import { PaymentComponent } from './Components/payment/payment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { ItineraryComponent } from './Components/itinerary/itinerary.component';
     FlightComponent,
     HotelComponent,
     CarComponent,
-    ItineraryComponent
+    ItineraryComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

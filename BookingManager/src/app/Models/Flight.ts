@@ -9,7 +9,8 @@ export class Flight{
     DeparatureTimes: Array<string>;
     ArrivalTimes:Array<string>;
     Status:FlightStatus;
-    cost:Array<string>;
+    cost:string;
+    discount:string;
     PassengerCount:string;
     AirlineDetails:Array<string>;
 }

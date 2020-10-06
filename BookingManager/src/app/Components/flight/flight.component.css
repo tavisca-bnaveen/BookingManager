@@ -55,3 +55,11 @@
     font-weight: 600;
     margin-top:5px;
 }
+.Flight-pnr-type{
+    display: flex;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.Flight-pnr,.Flight-type{
+    width: 50%;
+}

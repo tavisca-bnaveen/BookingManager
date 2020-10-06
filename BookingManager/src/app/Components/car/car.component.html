@@ -21,10 +21,10 @@
       <div>
         <strong><span [class]="cardetails.status">{{cardetails.status}}</span></strong>
       </div>
-      <div class="Check-staus-Car">
+      <div class="Check-staus-Car" *ngIf="confirm">
         <button>Check Status</button>
       </div>
-      <div class="Cancel-Car">
+      <div class="Cancel-Car" *ngIf="confirm">
         <button>Cancel Car</button>
       </div>
     </div>

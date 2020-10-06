@@ -20,10 +20,10 @@
       <div>
         <strong><span [class]="hoteldetails.status">{{hoteldetails.status}}</span></strong>
       </div>
-      <div class="Check-staus-Hotel">
+      <div class="Check-staus-Hotel" *ngIf="confirm">
         <button>Check Status</button>
       </div>
-      <div class="Cancel-Hotel">
+      <div class="Cancel-Hotel" *ngIf="confirm">
         <button>Cancel Hotel</button>
       </div>
     </div>

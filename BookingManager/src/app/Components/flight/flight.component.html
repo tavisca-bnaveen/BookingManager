@@ -1,5 +1,13 @@
 <div class="Flight-card">
   <div class="Flight-Details">
+  <div class="Flight-pnr-type">
+    <div class="Flight-pnr">
+      PNR- {{flightdetails.PNR}}
+    </div>
+    <div class="Flight-type">
+      TYPE- {{flightdetails.Type}}
+    </div>
+  </div>
   <div class="each-route" *ngFor="let dest of flightdetails.destination;let i = index">
   
   <div class="route-details">

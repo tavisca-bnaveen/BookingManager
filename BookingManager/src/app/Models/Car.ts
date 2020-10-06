@@ -7,6 +7,7 @@ export class Car{
     DropOff:string;
     Pickupdate:string;
     DropOffDate:string;
-    TotalCost:string;
+    cost:string;
+    discount:string;
     status:IndiviualStatus;
 }

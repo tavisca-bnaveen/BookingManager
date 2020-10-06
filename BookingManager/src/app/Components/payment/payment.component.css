@@ -1,0 +1,42 @@
+.payment-card{
+    margin-top:1rem;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 0.4px 0 rgba(0,0,0,0.1);
+    border:none;
+    border-radius: 5px;
+    width: 50%;
+    margin: 10px auto;
+}
+.payment-table .payment-header,.payment-table .payment-values{
+    display: flex;
+    width: 100%;
+    padding: 7px;
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.1);
+}
+.payment-table .component{
+    width:50%;
+}
+.payment-table .cost{
+    width:25%;
+    text-align: center;
+}
+.payment-table .discount{
+    width:25%;
+    text-align: center;
+}
+p{
+    margin:0;
+}
+.Total-amount{
+    font-weight: 600;
+    font-size:24px;
+    
+    margin-bottom:5px;
+}
+.total-fare{
+    font-size: 20px;
+}
