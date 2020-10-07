@@ -6,7 +6,7 @@ import { Profile } from 'src/app/Models/UserProfile';
 import { AuthenticateUsers } from 'src/app/Models/Users';
 import { AuthencticationService } from 'src/app/Services/Auth0/authenctication.service';
 import { TripserviceService } from 'src/app/Services/TripService/tripservice.service';
-
+// import {ViewColorDirective} from '../../CustomDirectives/View.Directive.Color';
 @Component({
   selector: 'app-post-booking',
   templateUrl: './post-booking.component.html',

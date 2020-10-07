@@ -75,7 +75,7 @@ input:focus{
     border: transparent;
 }
 .login-sumbit:hover{
-    background-color: gray;
+    /* background-color: gray; */
     color: white;
 }
 .or{

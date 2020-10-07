@@ -21,8 +21,8 @@
       <span class="trip-data Booked">{{trip.BookedDate}}</span>
       <span class="trip-data TotalCost">{{trip.TotalCost}}</span>
       <span class="trip-data Status">{{trip.status}}</span>
-      <span class="trip-data" (click)="ViewItinerayDetails(trip)" class=" desktop"> <span class="view-itinerary"> View Itinerary</span> </span>
-      <span class="trip-data" (click)="ViewItinerayDetails(trip)" class=" mobile"> <span class="view-itinerary"> View </span> </span>
+      <span class="trip-data" (click)="ViewItinerayDetails(trip)" class=" desktop" > <span class="view-itinerary" [BackColor]="'green'"> View Itinerary</span> </span>
+      <span class="trip-data" (click)="ViewItinerayDetails(trip)" class=" mobile" > <span class="view-itinerary" [BackColor]="'green'"> View </span> </span>
     </div>
   </div>
 </div>
