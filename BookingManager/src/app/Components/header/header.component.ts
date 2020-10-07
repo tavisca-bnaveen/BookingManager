@@ -24,14 +24,14 @@ export class HeaderComponent implements OnInit {
     //console.log("header"+ JSON.stringify(this.UserData));
     this.profilepicture=localStorage.getItem('picture');
     this.Name=localStorage.getItem('Name');
-    console.log(this.profilepicture)
+    // console.log(this.profilepicture)
   }
   Logout(){
     localStorage.clear();
     this.router.navigateByUrl('Login');
   }
   home(){
-    console.log("try to go home");
+    // console.log("try to go home");
     this.router.navigateByUrl('PostBooking');
   }
 }

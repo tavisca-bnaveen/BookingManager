@@ -1,7 +1,8 @@
 .itinerary{
     background-color: #f3f3f3;
     min-width: 100%;
-    height: 100%;
+    min-height: 100%;
+    max-height: 500%;
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
@@ -17,12 +18,31 @@
     padding-top: 1rem;
     
 }
+@media(max-width:768px){
+    .trip-details-status{
+        width: 95%;
+    }
+}
+@media(min-width:769px){
+    @media(max-width:1025px){
+    .trip-details-status{
+            width: 60%;
+        }
+    }
+}
 .trip-details-status .trip-details{
+    font-weight: 600;
     width: 75%;
 }
 .trip-details-status .trip-overall-status{
     width: 25%;
     text-align: end;
+}
+@media(max-width:415px){
+    .trip-details-status .trip-overall-status{
+        width: inherit;
+    }
+
 }
 .trip-overall-status span{
     font-size: 24px;

@@ -8,6 +8,19 @@
     width: 50%;
     margin: 10px auto;
 }
+@media(max-width:768px){
+    .Hotel-Card{
+        width: 95%;
+        padding: 10px;
+    }
+}
+@media(min-width:769px){
+    @media(max-width:1025px){
+        .Hotel-Card{
+            width: 60%;
+        }
+    }
+}
 .hotel-icon{
     width: 50px;
     height: 35px;
@@ -16,6 +29,7 @@
     vertical-align: super;
     width: 70%;
 }
+
 .location-name{
     vertical-align: super;
 }
@@ -62,4 +76,26 @@ button{
 .Hotel-price{
     font-size: 20px;
     margin: 0;
+}
+.check-in-out,.tenants-details{
+    display: flex;
+    width: 80%;
+}
+.check-in-out .checkin,.tenants-details .tenants{
+    width:40%;
+}
+@media(max-width:415px){
+    .Hotel-details{
+        width: 75%;
+    }
+    .Hotel-status{
+        width:25%;
+    }
+    .check-in-out,.tenants-details{
+
+        width: 100%;
+    }
+    .check-in-out .checkin,.tenants-details .tenants{
+        width:46%;
+    }
 }

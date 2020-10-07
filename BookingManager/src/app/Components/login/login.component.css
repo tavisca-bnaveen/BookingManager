@@ -5,6 +5,12 @@
     font-size:24px;
     color: white;
 }
+@media(max-width:415px){
+    .login-container{
+        margin-left:10%;
+        width:80%;
+    }
+}
 .login-container .login-form{
     padding: 2rem;
 }
@@ -69,7 +75,7 @@ input:focus{
     border: transparent;
 }
 .login-sumbit:hover{
-    background-color: gray;
+    /* background-color: gray; */
     color: white;
 }
 .or{
@@ -81,10 +87,16 @@ input:focus{
 }
 .alert-danger p{
     margin: 0;
-    font-size: 14px;
-    color: red;
+    font-size: 18px;
+    color: orangered;
 }
 button:disabled{
     background-color: #f3f3f3 !important;
     color: gray !important;
+}
+.Login-error{
+    font-size: 18px;
+    color: orangered;
+    text-align: center;
+    margin: 0;
 }

@@ -1,26 +1,30 @@
 <div *ngIf="header" class="Post-booking">
 <app-header  [userdata]="CurrentUser"></app-header>
-<div>
+<div class="trips-view">
   <!-- <button (click)="GetMyTrips()">
     Get My Trips
   </button> -->
-</div>
-  <div *ngIf="showtrips">
+
+  <div *ngIf="showtrips" class="trips-table">
+    <p class="myTrips">My Trips</p>
     <div class="trips-header">
       <b>
-      <span class="trip-data">TripId</span>
-      <span class="trip-data">Booked</span>
-      <span class="trip-data">TotalCost</span>
-      <span class="trip-data">Status</span>
+      <span class="trip-data tripid">TripId</span>
+      <span class="trip-data Booked">Booked</span>
+      <span class="trip-data TotalCost">TotalCost</span>
+      <span class="trip-data Status">Status</span>
+      <span class="trip-data"></span>
       </b>
     </div>
     <div *ngFor="let trip of AllTrips" class="trips-row">
-      <span class="trip-data">{{trip.Id}}</span>
-      <span class="trip-data">{{trip.BookedDate}}</span>
-      <span class="trip-data">{{trip.TotalCost}}</span>
-      <span class="trip-data">{{trip.status}}</span>
-      <span class="trip-data" (click)="ViewItinerayDetails(trip)"> View Itinerary </span>
+      <span class="trip-data tripid">{{trip.Id}}</span>
+      <span class="trip-data Booked">{{trip.BookedDate}}</span>
+      <span class="trip-data TotalCost">{{trip.TotalCost}}</span>
+      <span class="trip-data Status">{{trip.status}}</span>
+      <span class="trip-data" (click)="ViewItinerayDetails(trip)" class=" desktop" > <span class="view-itinerary" [BackColor]="'green'"> View Itinerary</span> </span>
+      <span class="trip-data" (click)="ViewItinerayDetails(trip)" class=" mobile" > <span class="view-itinerary" [BackColor]="'green'"> View </span> </span>
     </div>
   </div>
+</div>
 </div>
 

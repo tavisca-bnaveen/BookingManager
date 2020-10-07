@@ -1,0 +1,33 @@
+<div class="payment-card">
+  <p class="Total-amount">Trip Fare Breakup</p>
+  <div class="payment-table">
+  <div class="payment-header">
+    
+    <div class="component"><strong>Name</strong></div>
+    <div class="cost"><strong>Cost</strong></div>
+    <div class="discount"><strong>Discount</strong></div>
+
+  </div>
+  <div class="payment-values" *ngIf="Trip.Flight">
+    <div class="component">{{Trip.Flight.Type}}-{{Trip.Flight.PNR}}</div>
+    <div class="cost">{{Trip.Flight.cost| currency:'USD'}}</div>
+    <div class="discount">{{Trip.Flight.discount}}</div>
+  </div>
+  <div class="payment-values" *ngFor="let hotel of Trip.Hotel">
+    <div class="component">{{hotel.Name}}</div>
+    <div class="cost">{{hotel.cost| currency:'USD'}}</div>
+    <div class="discount">{{hotel.discount}}</div>
+  </div>
+  <div class="payment-values" *ngFor="let car of Trip.Car">
+    <div class="component">{{car.Name}}</div>
+    <div class="cost">{{car.cost| currency:'USD'}}</div>
+    <div class="discount">{{car.discount}}</div>
+  </div>
+  
+  </div>
+  <p class="total-fare">Total cost of trip is <strong>{{TotalAmount| currency:'USD'}}</strong></p>
+  <p class="total-fare" *ngIf="CancelComponent">
+    
+    Total amount refunded is <strong>{{TotalRefund| currency:'USD'}}</strong>
+  </p>
+</div>

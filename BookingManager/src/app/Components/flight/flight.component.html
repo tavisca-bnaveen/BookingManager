@@ -1,5 +1,13 @@
 <div class="Flight-card">
   <div class="Flight-Details">
+  <div class="Flight-pnr-type">
+    <div class="Flight-pnr">
+      PNR- {{flightdetails.PNR}}
+    </div>
+    <div class="Flight-type">
+      TYPE- {{flightdetails.Type}}
+    </div>
+  </div>
   <div class="each-route" *ngFor="let dest of flightdetails.destination;let i = index">
   
   <div class="route-details">
@@ -9,12 +17,12 @@
     <span>{{flightdetails.destination[i]}}</span>
     
   </div>
-  <div>
-    <span>Depature- <strong> {{flightdetails.DeparatureTimes[i]}}</strong></span>
-    <span>Arrival- <strong>{{flightdetails.ArrivalTimes[i]}}</strong></span>
+  <div class="dept-details">
+    <span class="dept">Depature <strong> {{flightdetails.DeparatureTimes[i]}}</strong></span>
+    <span>Arrival <strong>{{flightdetails.ArrivalTimes[i]}}</strong></span>
   </div>
   <div>
-    <span><strong>{{flightdetails.AirlineDetails[i]}}</strong></span>
+    <span class="airlines"><strong>{{flightdetails.AirlineDetails[i]}}</strong></span>
   </div>
   </div>
   </div>
@@ -23,10 +31,10 @@
       <span [class]="flightdetails.Status"><strong>{{flightdetails.Status}}</strong></span>
     </div>
     <div class="Check-staus-Flight">
-      <button>Check Status</button>
+      <button [BackColor]="'#0A5783'">Check Status</button>
     </div>
     <div class="Cancel-Flight">
-      <button>Cancel Flight</button>
+      <button [BackColor]="'#0A5783'">Cancel Flight</button>
     </div>
   </div>
 </div>

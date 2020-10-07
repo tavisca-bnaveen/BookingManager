@@ -13,6 +13,7 @@
   <app-flight *ngIf="trip.Flight" [TripId]="TripId" [Flightdetails]="trip.Flight" class="margin-top-1"></app-flight>
   <app-hotel  *ngFor="let hotel of trip.Hotel" [TripId]="TripId" [Hoteldetails]="hotel"></app-hotel>
   <app-car    *ngFor="let Car of trip.Car" [TripId]="TripId" [Cardetails]="Car"></app-car>
+  <app-payment [trip]="trip"></app-payment>
   </div>
 </div>
 

@@ -19,6 +19,19 @@
     margin: 10px auto;
     display: flex;
 }
+@media(max-width:768px){
+    .Flight-card{
+        width: 95%;
+        padding: 10px;
+    }
+}
+@media(min-width:769px){
+    @media(max-width:1025px){
+        .Flight-card{
+            width: 60%;
+        }
+    }
+}
 .Flight-Details{
     width: 75%;
 }
@@ -54,4 +67,26 @@
     font-size: 12px;
     font-weight: 600;
     margin-top:5px;
+}
+.dept-details{
+    display: flex;
+    width: 100%;
+}
+.dept-details .dept{
+    width: 50%;
+}
+.Flight-pnr-type{
+    display: flex;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.Flight-pnr,.Flight-type{
+    width: 50%;
+}
+.airlines{
+    margin-bottom: 1rem;
+}
+.each-route{
+    margin-bottom: 1rem;
+
 }

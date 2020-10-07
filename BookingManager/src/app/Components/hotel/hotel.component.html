@@ -6,8 +6,8 @@
       <span class="location-name">{{hoteldetails.Name}}({{hoteldetails.Location}})</span>
         </div>
         <div class="check-in-out">
-          <span>Checkin- <strong>{{hoteldetails.CheckIn}} </strong></span>
-          <span class="margin-left-1">Checkout- <strong>{{hoteldetails.Checkout}} </strong></span>
+          <span class="checkin">Checkin <strong>{{hoteldetails.CheckIn}} </strong></span>
+          <span class="margin-left-1">Checkout <strong>{{hoteldetails.Checkout}} </strong></span>
       </div>
       <div class="tenants-details">
         <span class="tenants">Guest/s <strong> {{hoteldetails.TravellerInfo}}</strong> </span>
@@ -20,11 +20,11 @@
       <div>
         <strong><span [class]="hoteldetails.status">{{hoteldetails.status}}</span></strong>
       </div>
-      <div class="Check-staus-Hotel">
-        <button>Check Status</button>
+      <div class="Check-staus-Hotel" *ngIf="confirm">
+        <button [BackColor]="'#0A5783'">Check Status</button>
       </div>
-      <div class="Cancel-Hotel">
-        <button>Cancel Hotel</button>
+      <div class="Cancel-Hotel" *ngIf="confirm">
+        <button [BackColor]="'#0A5783'">Cancel Hotel</button>
       </div>
     </div>
   </div>

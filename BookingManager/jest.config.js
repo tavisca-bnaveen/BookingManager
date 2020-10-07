@@ -1,6 +1,6 @@
 const { pathsToModuleNameMapper } = require('ts-jest/utils');
 
-const { compilerOptions } = require('./tsconfig.app.json');
+const { compilerOptions } = require('./src/tsconfig.app.json');
 module.exports  =   {  
     preset:   'jest-preset-angular', // load the adapater
     roots:  ['<rootDir>/src/'], // start searching for filoes from root
