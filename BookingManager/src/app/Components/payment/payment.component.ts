@@ -14,6 +14,7 @@ export class PaymentComponent implements OnInit {
   TotalAmount:string;
   TotalRefund:string;
   CancelComponent:boolean;
+  TotalCancelledComponents:number;
   @Input()
   set trip(val: Trip) {
     this.Trip=val;
@@ -27,7 +28,7 @@ export class PaymentComponent implements OnInit {
   ngOnInit() {
     this.CancelComponent=false;
     this.calculateTotalAmount();
-
+    this.TotalCancelledComponents=0;
   }
   calculateTotalAmount(){
     let amount=0;
@@ -36,7 +37,7 @@ export class PaymentComponent implements OnInit {
       amount+=(Number(this.Trip.Flight.cost)-Number(this.Trip.Flight.discount));
       if(this.Trip.Flight.Status.toString()=== FlightStatus[FlightStatus.Cancel]){
       
-        
+        this.TotalCancelledComponents+=1;
         this.CancelComponent=true;
         refund+=(Number(this.Trip.Flight.cost)-Number(this.Trip.Flight.discount));
       }
@@ -47,6 +48,10 @@ export class PaymentComponent implements OnInit {
         refund+=(Number(hotel.cost)-Number(hotel.discount));
         //console.log("hotel cancel"+hotel.Id);
         this.CancelComponent=true;
+        this.TotalCancelledComponents+=1;
+      }
+      else{
+
       }
         
     } 
@@ -56,6 +61,7 @@ export class PaymentComponent implements OnInit {
       if(car.status.toString()=== IndiviualStatus[IndiviualStatus.Cancel]){
         refund+=(Number(car.cost)-Number(car.discount));
         this.CancelComponent=true;
+        this.TotalCancelledComponents+=1;
         //console.log("car cancel"+car.Id);
       }
        

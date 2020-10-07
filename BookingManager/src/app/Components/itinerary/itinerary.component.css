@@ -18,6 +18,18 @@
     padding-top: 1rem;
     
 }
+@media(max-width:768px){
+    .trip-details-status{
+        width: 95%;
+    }
+}
+@media(min-width:769px){
+    @media(max-width:1025px){
+    .trip-details-status{
+            width: 60%;
+        }
+    }
+}
 .trip-details-status .trip-details{
     font-weight: 600;
     width: 75%;
@@ -25,6 +37,12 @@
 .trip-details-status .trip-overall-status{
     width: 25%;
     text-align: end;
+}
+@media(max-width:415px){
+    .trip-details-status .trip-overall-status{
+        width: inherit;
+    }
+
 }
 .trip-overall-status span{
     font-size: 24px;

@@ -70,8 +70,8 @@ export class PostBookingComponent implements OnInit {
     this.tripservice.GetAllTrips(localStorage.getItem('TokenManager')).subscribe(
       data=>{
         this.AllTrips=data;
-        console.log("ALL"+ JSON.stringify(this.AllTrips));
-        console.log("Hotel"+ JSON.stringify(this.AllTrips[0].Hotel));
+        // console.log("ALL"+ JSON.stringify(this.AllTrips));
+        // console.log("Hotel"+ JSON.stringify(this.AllTrips[0].Hotel));
         this.showtrips=true
       }
     );

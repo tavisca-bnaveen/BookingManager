@@ -7,6 +7,7 @@
     background-position: center;
     background-size: cover;
 }
+
 .trip-data{
     display: inline-block;
     width: 20%;
@@ -35,7 +36,58 @@
     border:none;
     border-radius: 5px;
     width: 80%;
-    margin: 10px auto;
+    margin: 5rem auto 0;
+}
+@media(max-width:768px){
+    .trips-view{
+       width: 95%;
+       padding: 10px;
+    }
+    .trips-table{
+        margin-left: 0;
+        width: 100%;
+        font-size: 14px;
+    }
+    .trip-data.tripid{
+        width: 15%;
+    }
+    .trip-data.Booked{
+        width: 22%;
+    }
+    .trip-data.TotalCost{
+        width:17%;
+    }
+    .trip-data.Status{
+        width:25%;
+    }
+    .trips-table .trips-header,.trips-table .trips-row{
+        padding: 6px;
+    }
+    .mobile .view-itinerary{
+        display: inherit;
+        padding: 3px 20px;
+    }
+    .desktop .view-itinerary{
+        display: none;
+    }
+    
+}
+@media(min-width:769px){
+    .mobile .view-itinerary{
+        display: none;
+    }
+    .desktop .view-itinerary{
+        display: inherit;
+    }
+}
+@media(min-width:769px){
+    @media(max-width:1025px){
+        .trips-table{
+            width: 100%;
+            margin-left: 0%;
+        }
+    }
+
 }
 .view-itinerary{
     background-color: #128820;
