@@ -11,7 +11,7 @@
   <div class="each-route" *ngFor="let dest of flightdetails.destination;let i = index">
   
   <div class="route-details">
-    <img src="../../../assets/FlightIcon.png" class="flight-icon">
+    <img src="../../../assets/FlightIcon.png" class="flight-icon" alt="flight">
     <span>{{flightdetails.source[i]}}</span>
     <span>	&#8594;</span>
     <span>{{flightdetails.destination[i]}}</span>
@@ -31,10 +31,10 @@
       <span [class]="flightdetails.Status"><strong>{{flightdetails.Status}}</strong></span>
     </div>
     <div class="Check-staus-Flight">
-      <button [BackColor]="'#0A5783'">Check Status</button>
+      <button [BackColorHover]="'#0A5783'">Check Status</button>
     </div>
     <div class="Cancel-Flight">
-      <button [BackColor]="'#0A5783'">Cancel Flight</button>
+      <button [BackColorHover]="'#0A5783'">Cancel Flight</button>
     </div>
   </div>
 </div>

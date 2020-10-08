@@ -5,6 +5,7 @@ import { Trip } from 'src/app/Models/Trip';
 import { Profile } from 'src/app/Models/UserProfile';
 import { AuthenticateUsers } from 'src/app/Models/Users';
 import { AuthencticationService } from 'src/app/Services/Auth0/authenctication.service';
+import { LoginService } from 'src/app/Services/Login/login.service';
 import { TripserviceService } from 'src/app/Services/TripService/tripservice.service';
 // import {ViewColorDirective} from '../../CustomDirectives/View.Directive.Color';
 @Component({
@@ -26,8 +27,8 @@ export class PostBookingComponent implements OnInit {
   @Output()
   UserData= new EventEmitter<Profile>();
   CurrentTrip:Trip;
-  constructor(private activatedRoute: ActivatedRoute,private router:Router,private auth0 : AuthencticationService,private tripservice:TripserviceService) {
-    this.AllUsers = new AuthenticateUsers();
+  constructor(private activatedRoute: ActivatedRoute,private router:Router,private auth0 : AuthencticationService,private tripservice:TripserviceService,private loginservice:LoginService) {
+    this.AllUsers = new AuthenticateUsers(loginservice);
    }
 
   ngOnInit() {

@@ -57,6 +57,8 @@
     margin-top: 10px;
     border-radius: 3px;
     border: transparent;
+    font-size: 16px;
+    font-weight: 500;
 }
 input:focus{
     outline: none;

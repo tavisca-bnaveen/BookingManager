@@ -86,5 +86,49 @@
 			}],
 	"TotalCost":"900",
 	"status":"PartialCancelled"
+},
+{
+	"Id":"78965",
+	"BookedDate":"30-09-2020",
+	"Flight":{
+				"PNR":"PLMNJ",
+				"Type":"Multiway",
+				"source":["Las","Lax","NYC"],
+				"destination":["Lax","NYC","Las"],
+				"DeparatureTimes":["20-9-2020 12:30PM","21-9-2020 12:30PM","22-9-2020 12:30PM"],
+				"ArrivalTimes":["20-9-2020 5:00PM","21-9-2020 5:30PM","22-9-2020 5:30PM"],
+				"Status":"Confirm",
+				"cost":"1200",
+				"discount":"25",
+				"PassengerCount":"1",
+				
+				"AirlineDetails":["American Airlines","Delta Airlines","American Airlines"]
+				},
+	"Hotel":[{
+				"Id":"01",
+				"CheckIn":"20-9-2020",
+				"Checkout":"25-9-2020",
+				"Location":"Lax",
+				"Name":"Novotel Pvt limited",
+				"cost":"500",
+				"discount":"50",
+				"PeopleCount":"1",
+				"TravellerInfo": "Naveen",
+				"Rating":"4.5",
+				"status":"Cancel"
+				}],
+	"Car":[{
+			"Id":"01",
+			"Name":"BMW Economy",
+			"PickUp":"Las",
+			"DropOff":"Lax",
+			"Pickupdate":"21-10-2020",
+			"DropOffDate":"25-10-2020",
+			"cost":"700",
+			"discount":"100",
+			"status":"Confirm"
+			}],
+	"TotalCost":"900",
+	"status":"PartialCancelled"
 }
 ]

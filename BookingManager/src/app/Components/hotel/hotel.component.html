@@ -2,7 +2,7 @@
   <div class="Hotel-view">
     <div class=" Hotel-details">
       <div class="Hotel-name">
-      <img src="../../../assets/hotel-icon.webp" class="hotel-icon">
+      <img src="../../../assets/hotel-icon.webp" class="hotel-icon" alt="hotel">
       <span class="location-name">{{hoteldetails.Name}}({{hoteldetails.Location}})</span>
         </div>
         <div class="check-in-out">
@@ -21,10 +21,10 @@
         <strong><span [class]="hoteldetails.status">{{hoteldetails.status}}</span></strong>
       </div>
       <div class="Check-staus-Hotel" *ngIf="confirm">
-        <button [BackColor]="'#0A5783'">Check Status</button>
+        <button [BackColorHover]="'#0A5783'">Check Status</button>
       </div>
       <div class="Cancel-Hotel" *ngIf="confirm">
-        <button [BackColor]="'#0A5783'">Cancel Hotel</button>
+        <button [BackColorHover]="'#0A5783'">Cancel Hotel</button>
       </div>
     </div>
   </div>

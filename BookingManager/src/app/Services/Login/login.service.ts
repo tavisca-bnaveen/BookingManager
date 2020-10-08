@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginDetails } from 'src/app/Models/LoginDetails';
+import { Profile } from 'src/app/Models/UserProfile';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,12 @@ export class LoginService {
     details.Email=email;
     details.Password=password;
     return this.http.post<boolean>('https://localhost:44389/api/Login',details);
+  }
+  GetAllUsers(){
+    let allUsers=new Array<Profile>();
+    
+    
+    return  this.http.get<Profile[]>('https://localhost:44389/api/Login/AllUsers').toPromise();
+    
   }
 }

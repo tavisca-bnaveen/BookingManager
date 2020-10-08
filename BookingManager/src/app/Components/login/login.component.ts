@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators,AbstractControl} from '@angular/forms';
 import { Router } from '@angular/router';
+import { async } from 'rxjs/internal/scheduler/async';
 import { AuthenticateUsers } from 'src/app/Models/Users';
 import { AuthencticationService } from 'src/app/Services/Auth0/authenctication.service';
 import { LoginService } from 'src/app/Services/Login/login.service';
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   private users:AuthenticateUsers;
   formLogin:FormGroup;
   constructor(private authenctication : AuthencticationService , private loginService:LoginService,private router: Router) {
-    this.users=new AuthenticateUsers();
+    this.users=new AuthenticateUsers(loginService);
     this.formLogin= new FormGroup({
       formEmail:new FormControl(this.username,
         Validators.compose([
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
   password:string;
   ngOnInit() {
     this.formLogin.setValue({'formEmail':"","formPassword":""});
-    console.log("allusers"+JSON.stringify(this.users.GetAllUsers()));
+    console.log("allusers"+JSON.stringify( this.users.GetAllUsers()));
     this.LoginError=false;
     if(localStorage.getItem('TokenManager') == 'fool')
         localStorage.removeItem('TokenManager');

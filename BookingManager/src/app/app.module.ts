@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
 import { ItineraryComponent } from './Components/itinerary/itinerary.component';
 import { PaymentComponent } from './Components/payment/payment.component';
 import { ViewColorDirective } from './CustomDirectives/View.Directive.Color';
+import { AddClassDirective } from './CustomDirectives/AddClass.hover.Directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,7 @@ import { ViewColorDirective } from './CustomDirectives/View.Directive.Color';
     HotelComponent,
     CarComponent,
     ItineraryComponent,
-    PaymentComponent,ViewColorDirective
+    PaymentComponent,ViewColorDirective,AddClassDirective
   ],
   imports: [
     BrowserModule,
