@@ -28,6 +28,7 @@ export class FlightComponent implements OnInit {
   }
   constructor(private tripservice:TripserviceService) { }
   cancel:boolean
+  flightStatus:string;
   ngOnInit() {
     this.cancel=false;
     var _cancel=FlightStatus[FlightStatus.Cancel];
@@ -36,15 +37,27 @@ export class FlightComponent implements OnInit {
       this.cancel=true;
       
     }
+    this.flightStatus=this.flightdetails.status.toString();
   }
   CancelFlight(){
     this.tripservice.CancelFlight(this.TripId,this.flightdetails.pnr).subscribe(
       data =>{
-          this.flightdetails.status=FlightStatus[FlightStatus.Cancel] ;
+        this.flightStatus=FlightStatus[FlightStatus.Cancel] ;
           this.cancel=true;
           window.location.reload();
 
       }
     )
   }
+  getFlightStatus(){
+    this.tripservice.GetFlightStatus(this.TripId,this.flightdetails.pnr).subscribe(
+      data =>{
+        this.flightStatus=data ;
+          
+        window.location.reload();
+
+      }
+    )
+  }
+  
 }

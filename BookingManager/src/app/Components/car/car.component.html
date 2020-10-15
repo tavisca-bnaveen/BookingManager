@@ -19,10 +19,10 @@
     </div>
     <div class="Car-status">
       <div>
-        <strong><span [class]="cardetails.status">{{cardetails.status}}</span></strong>
+        <strong><span [class]="carStatus">{{carStatus}}</span></strong>
       </div>
       <div class="Check-staus-Car" *ngIf="confirm">
-        <button [BackColorHover]="'#0A5783'">Check Status</button>
+        <button [BackColorHover]="'#0A5783'" (click)="getCarStatus()">Check Status</button>
       </div>
       <div class="Cancel-Car" *ngIf="confirm">
         <button [BackColorHover]="'#0A5783'" (click)="CancelCar()">Cancel Car</button>

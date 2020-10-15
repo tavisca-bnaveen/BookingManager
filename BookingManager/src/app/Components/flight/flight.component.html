@@ -28,10 +28,10 @@
   </div>
   <div class="Flight-operations">
     <div>
-      <span [class]="flightdetails.status"><strong>{{flightdetails.status}}</strong></span>
+      <span [class]="flightStatus"><strong>{{flightStatus}}</strong></span>
     </div>
     <div class="Check-staus-Flight" *ngIf="!cancel">
-      <button [BackColorHover]="'#0A5783'">Check Status</button>
+      <button [BackColorHover]="'#0A5783'" (click)="getFlightStatus()">Check Status</button>
     </div>
     <div class="Cancel-Flight" *ngIf="!cancel">
       <button [BackColorHover]="'#0A5783'" (click)="CancelFlight()">Cancel Flight</button>

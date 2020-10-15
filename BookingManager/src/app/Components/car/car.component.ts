@@ -30,6 +30,7 @@ export class CarComponent implements OnInit {
   }
 
   constructor(private tripservice:TripserviceService) { }
+  carStatus:string;
 
   ngOnInit() {
     var _confirm=IndiviualStatus[IndiviualStatus.Confirm];
@@ -37,12 +38,21 @@ export class CarComponent implements OnInit {
     {
       this.confirm=true;
     }
+    this.carStatus=this.cardetails.status.toString();
   }
   CancelCar(){
     this.tripservice.CancelCar(this.tripid,this.cardetails.id).subscribe(
       data => {
         this.confirm=false;
-        this.cardetails.status= IndiviualStatus[IndiviualStatus.Cancel];
+        this.carStatus= IndiviualStatus[IndiviualStatus.Cancel];
+        window.location.reload();
+      }
+    )
+  }
+  getCarStatus(){
+    this.tripservice.GetCarStatus(this.tripid,this.cardetails.id).subscribe(
+      data => {
+        this.carStatus=data;
         window.location.reload();
       }
     )

@@ -18,10 +18,10 @@
     </div>
     <div class="Hotel-status">
       <div>
-        <strong><span [class]="hoteldetails.status">{{hoteldetails.status}}</span></strong>
+        <strong><span [class]="hotelStatus">{{hotelStatus}}</span></strong>
       </div>
       <div class="Check-staus-Hotel" *ngIf="confirm">
-        <button [BackColorHover]="'#0A5783'">Check Status</button>
+        <button [BackColorHover]="'#0A5783'" (click)="getHotelStatus()">Check Status</button>
       </div>
       <div class="Cancel-Hotel" *ngIf="confirm">
         <button [BackColorHover]="'#0A5783'" (click)="CancelHotel()">Cancel Hotel</button>
