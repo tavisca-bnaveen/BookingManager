@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { NgxSpinner } from 'ngx-spinner/lib/ngx-spinner.enum';
 import { Trip } from 'src/app/Models/Trip';
 import { TripserviceService } from 'src/app/Services/TripService/tripservice.service';
 
@@ -10,7 +12,7 @@ import { TripserviceService } from 'src/app/Services/TripService/tripservice.ser
 })
 export class ItineraryComponent implements OnInit {
 
-  constructor(private tripService:TripserviceService) {
+  constructor(private tripService:TripserviceService,private spinner:NgxSpinnerService) {
     
     
    }
@@ -18,16 +20,21 @@ export class ItineraryComponent implements OnInit {
   NoTrip:boolean
   TripId:string;
   ngOnInit() {
+    this.spinner.show();
+    
     this.NoTrip=true;
     this.TripId=localStorage.getItem('TripId');
     this.tripService.GetAllTrips(localStorage.getItem('TokenManager')).subscribe(
       data=>{
         data.forEach(_trip =>
           {
-            if(_trip.Id== localStorage.getItem('TripId'))
+            if(_trip.id== localStorage.getItem('TripId'))
               {
                 this.trip=_trip;
                 this.NoTrip=false;
+                setTimeout(() => {
+                  this.spinner.hide();
+                }, 1000);
                 return;
               }
           });

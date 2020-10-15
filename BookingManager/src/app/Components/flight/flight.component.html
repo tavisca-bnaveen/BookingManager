@@ -2,39 +2,39 @@
   <div class="Flight-Details">
   <div class="Flight-pnr-type">
     <div class="Flight-pnr">
-      PNR- {{flightdetails.PNR}}
+      PNR- {{flightdetails.pnr}}
     </div>
     <div class="Flight-type">
-      TYPE- {{flightdetails.Type}}
+      TYPE- {{flightdetails.type}}
     </div>
   </div>
   <div class="each-route" *ngFor="let dest of flightdetails.destination;let i = index">
   
   <div class="route-details">
-    <img src="../../../assets/FlightIcon.png" class="flight-icon">
+    <img src="../../../assets/FlightIcon.png" class="flight-icon" alt="flight">
     <span>{{flightdetails.source[i]}}</span>
     <span>	&#8594;</span>
     <span>{{flightdetails.destination[i]}}</span>
     
   </div>
   <div class="dept-details">
-    <span class="dept">Depature <strong> {{flightdetails.DeparatureTimes[i]}}</strong></span>
-    <span>Arrival <strong>{{flightdetails.ArrivalTimes[i]}}</strong></span>
+    <span class="dept">Depature <strong> {{flightdetails.deparatureTimes[i]}}</strong></span>
+    <span>Arrival <strong>{{flightdetails.arrivalTimes[i]}}</strong></span>
   </div>
   <div>
-    <span class="airlines"><strong>{{flightdetails.AirlineDetails[i]}}</strong></span>
+    <span class="airlines"><strong>{{flightdetails.airlineDetails[i]}}</strong></span>
   </div>
   </div>
   </div>
   <div class="Flight-operations">
     <div>
-      <span [class]="flightdetails.Status"><strong>{{flightdetails.Status}}</strong></span>
+      <span [class]="flightdetails.status"><strong>{{flightdetails.status}}</strong></span>
     </div>
-    <div class="Check-staus-Flight">
-      <button [BackColor]="'#0A5783'">Check Status</button>
+    <div class="Check-staus-Flight" *ngIf="!cancel">
+      <button [BackColorHover]="'#0A5783'">Check Status</button>
     </div>
-    <div class="Cancel-Flight">
-      <button [BackColor]="'#0A5783'">Cancel Flight</button>
+    <div class="Cancel-Flight" *ngIf="!cancel">
+      <button [BackColorHover]="'#0A5783'" (click)="CancelFlight()">Cancel Flight</button>
     </div>
   </div>
 </div>

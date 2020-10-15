@@ -2,16 +2,16 @@
   <div class="Car-view">
     <div class=" Car-details">
       <div class="Car-name">
-      <img src="../../../assets/caricon.png" class="Car-icon">
-      <span class="location-name">{{cardetails.Name}}</span>
+      <img src="../../../assets/caricon.png" class="Car-icon" alt="Car">
+      <span class="location-name">{{cardetails.name}}</span>
         </div>
         <div class="Pickup">
-          <span class="first-pickup">Pickup <strong>{{cardetails.PickUp}} </strong></span>
-          <span class="margin-left-1">Date <strong>{{cardetails.Pickupdate}} </strong></span>
+          <span class="first-pickup">Pickup <strong>{{cardetails.pickUp}} </strong></span>
+          <span class="margin-left-1">Date <strong>{{cardetails.pickupdate}} </strong></span>
       </div>
       <div class="Dropoff">
-        <span class="first-dropoff">Droff <strong>&nbsp;&nbsp;{{cardetails.DropOff}} </strong></span>
-        <span class="margin-left-1">Date <strong>{{cardetails.DropOffDate}} </strong></span>
+        <span class="first-dropoff">Droff <strong>&nbsp;&nbsp;{{cardetails.dropOff}} </strong></span>
+        <span class="margin-left-1">Date <strong>{{cardetails.dropOffDate}} </strong></span>
     </div>
       
       <!-- <p class="Car-price">Total Car Price- <strong>{{cardetails.TotalCost | currency:'USD'}}</strong></p> -->
@@ -22,10 +22,10 @@
         <strong><span [class]="cardetails.status">{{cardetails.status}}</span></strong>
       </div>
       <div class="Check-staus-Car" *ngIf="confirm">
-        <button [BackColor]="'#0A5783'">Check Status</button>
+        <button [BackColorHover]="'#0A5783'">Check Status</button>
       </div>
       <div class="Cancel-Car" *ngIf="confirm">
-        <button [BackColor]="'#0A5783'">Cancel Car</button>
+        <button [BackColorHover]="'#0A5783'" (click)="CancelCar()">Cancel Car</button>
       </div>
     </div>
   </div>

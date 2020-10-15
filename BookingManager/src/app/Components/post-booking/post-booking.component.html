@@ -4,7 +4,7 @@
   <!-- <button (click)="GetMyTrips()">
     Get My Trips
   </button> -->
-
+<ngx-spinner></ngx-spinner>
   <div *ngIf="showtrips" class="trips-table">
     <p class="myTrips">My Trips</p>
     <div class="trips-header">
@@ -17,12 +17,12 @@
       </b>
     </div>
     <div *ngFor="let trip of AllTrips" class="trips-row">
-      <span class="trip-data tripid">{{trip.Id}}</span>
-      <span class="trip-data Booked">{{trip.BookedDate}}</span>
-      <span class="trip-data TotalCost">{{trip.TotalCost}}</span>
+      <span class="trip-data tripid">{{trip.id}}</span>
+      <span class="trip-data Booked">{{trip.bookedDate}}</span>
+      <span class="trip-data TotalCost">{{trip.totalCost | currency:'USD'}}</span>
       <span class="trip-data Status">{{trip.status}}</span>
-      <span class="trip-data" (click)="ViewItinerayDetails(trip)" class=" desktop" > <span class="view-itinerary" [BackColor]="'green'"> View Itinerary</span> </span>
-      <span class="trip-data" (click)="ViewItinerayDetails(trip)" class=" mobile" > <span class="view-itinerary" [BackColor]="'green'"> View </span> </span>
+      <span class="trip-data" (click)="ViewItinerayDetails(trip)" class=" desktop" > <span class="view-itinerary" [BackColorHover]="'green'"> View Itinerary</span> </span>
+      <span class="trip-data" (click)="ViewItinerayDetails(trip)" class=" mobile" > <span class="view-itinerary" [BackColorHover]="'green'"> View </span> </span>
     </div>
   </div>
 </div>

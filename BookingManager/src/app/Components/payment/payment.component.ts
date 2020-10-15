@@ -33,16 +33,16 @@ export class PaymentComponent implements OnInit {
   calculateTotalAmount(){
     let amount=0;
     let refund=0;
-    if(this.Trip.Flight){
-      amount+=(Number(this.Trip.Flight.cost)-Number(this.Trip.Flight.discount));
-      if(this.Trip.Flight.Status.toString()=== FlightStatus[FlightStatus.Cancel]){
+    if(this.Trip.flight){
+      amount+=(Number(this.Trip.flight.cost)-Number(this.Trip.flight.discount));
+      if(this.Trip.flight.status.toString()=== FlightStatus[FlightStatus.Cancel]){
       
         this.TotalCancelledComponents+=1;
         this.CancelComponent=true;
-        refund+=(Number(this.Trip.Flight.cost)-Number(this.Trip.Flight.discount));
+        refund+=(Number(this.Trip.flight.cost)-Number(this.Trip.flight.discount));
       }
     }
-    this.Trip.Hotel.forEach( hotel =>{
+    this.Trip.hotel.forEach( hotel =>{
       amount+=(Number(hotel.cost)-Number(hotel.discount));
       if(hotel.status.toString()=== IndiviualStatus[IndiviualStatus.Cancel]){
         refund+=(Number(hotel.cost)-Number(hotel.discount));
@@ -56,7 +56,7 @@ export class PaymentComponent implements OnInit {
         
     } 
       )
-    this.Trip.Car.forEach( car =>{
+    this.Trip.car.forEach( car =>{
       amount+=(Number(car.cost)-Number(car.discount))
       if(car.status.toString()=== IndiviualStatus[IndiviualStatus.Cancel]){
         refund+=(Number(car.cost)-Number(car.discount));

@@ -48,11 +48,11 @@
     font-size: 24px;
     
 }
-.trip-overall-status .Confirmed{
+.trip-overall-status .Confirm{
     color: green;
     font-weight: 600;
 }
-.trip-overall-status .Cancelled{
+.trip-overall-status .Cancel{
     color: red;
     font-weight: 600;
 }

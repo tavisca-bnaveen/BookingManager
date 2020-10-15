@@ -43,6 +43,6 @@
     box-shadow: 0px 2px 4px  rgba(0,0,0,0.2);
     background-color: white;
 }
-.user-details:hover .profile-dropdown{
+.Logout-dropdown .profile-dropdown{
     display: block;
 }

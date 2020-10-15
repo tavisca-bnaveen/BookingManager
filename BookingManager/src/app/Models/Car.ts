@@ -1,12 +1,12 @@
 import { IndiviualStatus } from './status';
 
 export class Car{
-    Id:string;
-    PickUp:string;
-    Name:string;
-    DropOff:string;
-    Pickupdate:string;
-    DropOffDate:string;
+    id:string;
+    pickUp:string;
+    name:string;
+    dropOff:string;
+    pickupdate:string;
+    dropOffDate:string;
     cost:string;
     discount:string;
     status:IndiviualStatus;

@@ -1,23 +1,24 @@
+<ngx-spinner></ngx-spinner>
 <div class="Login-page">
 <div class="login-container">
     <form name="formLogin" class="login-form" [formGroup]="formLogin" (ngsumbit)="onlogin()">
       <div class="form-group login-username">
         <label> Email</label>
-        <input type="text"  name="Username" formControlName="formEmail">
+        <input type="text"  name="Username" formControlName="formEmail" aria-label="Email">
         <div class="alert-danger" *ngIf="formLogin.controls.formEmail.dirty && !formLogin.controls.formEmail.valid">
           <p *ngIf="formLogin.controls.formEmail.errors.required">Email is required</p>
-          <p *ngIf="!formLogin.controls.formEmail.errors.EmailPattern">Invalid Email </p>
+          <p *ngIf="!formLogin.controls.formEmail.errors.EmailPattern">Invalid Email </p> 
         </div>
       </div>
       <div class="form-group login-password">
         <label> Password</label>
-        <input type="password"  name="Password" formControlName="formPassword" >
+        <input type="password"  name="Password" formControlName="formPassword" aria-label="Password">
         <div class="alert-danger" *ngIf="formLogin.controls.formPassword.dirty && !formLogin.controls.formPassword.valid">
           <p *ngIf="formLogin.controls.formPassword.errors.required">Password is required</p>
         </div>
       </div>
       <div class="form-group flex">
-        <button value="Login" (click)="onlogin()" class="login-sumbit" [disabled]="!formLogin.valid" [BackColor]="'gray'">
+        <button value="Login" (click)="onlogin()" class="login-sumbit" [disabled]="!formLogin.valid" [BackColorHover]="'gray'">
           Login
         </button>
         

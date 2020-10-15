@@ -1,20 +1,20 @@
 import {Directive, Input, ElementRef, Renderer2, HostListener } from '@angular/core';
 import { inherits } from 'util';
 @Directive({
-    selector: '[BackColor]'
+    selector: '[BackColorHover]'
 })
 
 export class ViewColorDirective{
 
-    @Input('BackColor')
-    BackColor:string;
+    @Input('BackColorHover')
+    BackColorHover:string;
 
     constructor(private element:ElementRef, private render : Renderer2){}
 
     @HostListener('mouseenter')
     mouseenter():void{
         
-        this.render.setStyle(this.element.nativeElement,'background-color',this.BackColor);
+        this.render.setStyle(this.element.nativeElement,'background-color',this.BackColorHover);
     }
 
     @HostListener('mouseleave')

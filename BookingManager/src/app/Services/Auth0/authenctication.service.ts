@@ -20,10 +20,11 @@ export class AuthencticationService {
     
 
     return this.http.get<Profile>('https://dev-v-ngyyfa.us.auth0.com/userinfo',{headers:headers});
+    //https:domain/userinfo
   }
   GetAuth0Authorization(){
     return "https://dev-v-ngyyfa.us.auth0.com/authorize?response_type=token&client_id=N7XVAjoPzdW9SKrb4kU3aj6bvUDIssp3&connection=google-oauth2&redirect_uri=http://localhost:4200/PostBooking&scope=openid%20profile%20email";
   }
-
+  // https:// domainid/authorize?response_type=token&cliend_id=&connection=google-oauth2&redirect_uri=&scope=openid%20profile%20email
 
 }

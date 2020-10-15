@@ -2,15 +2,15 @@ import { FlightType } from './FlghtType';
 import { FlightStatus } from './FlightStatus';
 
 export class Flight{
-    PNR: string;
-    Type: FlightType;
+    pnr: string;
+    type: FlightType;
     source: Array<string>;
     destination: Array<string>;
-    DeparatureTimes: Array<string>;
-    ArrivalTimes:Array<string>;
-    Status:FlightStatus;
+    deparatureTimes: Array<string>;
+    arrivalTimes:Array<string>;
+    status:FlightStatus;
     cost:string;
     discount:string;
-    PassengerCount:string;
-    AirlineDetails:Array<string>;
+    passengerCount:string;
+    airlineDetails:Array<string>;
 }
