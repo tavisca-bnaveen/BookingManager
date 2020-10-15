@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Hotel } from 'src/app/Models/Hotel';
 import { IndiviualStatus } from 'src/app/Models/status';
+import { TripserviceService } from 'src/app/Services/TripService/tripservice.service';
 
 @Component({
   selector: 'app-hotel',
@@ -29,7 +30,7 @@ export class HotelComponent implements OnInit {
     return this.hoteldetails;
   }
 
-  constructor() { }
+  constructor(private tripservice:TripserviceService) { }
 
   ngOnInit() {
     var _confirm=IndiviualStatus[IndiviualStatus.Confirm];
@@ -39,6 +40,16 @@ export class HotelComponent implements OnInit {
       
     }
       
+  }
+  CancelHotel(){
+      this.tripservice.CancelHotel(this.TripId,this.hoteldetails.id).subscribe(
+        data => {
+          this.confirm=false;
+          this.hoteldetails.status= IndiviualStatus[IndiviualStatus.Cancel].toString();
+          window.location.reload();
+        }
+      )
+      //window.location.reload();
   }
 
 }

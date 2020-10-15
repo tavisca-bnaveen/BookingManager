@@ -7,3 +7,9 @@ app-post-booking,app-itinerary{
     display: flex;
     flex-direction: column;
 }
+button:hover{
+    cursor: pointer;
+}
+button:disabled{
+    cursor: not-allowed !important;
+}

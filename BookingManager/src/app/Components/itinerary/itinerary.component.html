@@ -1,18 +1,19 @@
+<ngx-spinner></ngx-spinner>
 <app-header *ngIf="true"></app-header>
 <div class="itinerary">
   <div *ngIf="!NoTrip">
     <div class="trip-details-status">
       <div class="trip-details">
-          <div>Booking Date - {{trip.BookedDate}}</div>
-          <div>TripId- {{trip.Id}}</div>
+          <div>Booking Date - {{trip.bookedDate}}</div>
+          <div>TripId- {{trip.id}}</div>
       </div>
       <div class="trip-overall-status">
         <span [class]="trip.status">{{trip.status}}</span>
       </div>
     </div>
-  <app-flight *ngIf="trip.Flight" [TripId]="TripId" [Flightdetails]="trip.Flight" class="margin-top-1"></app-flight>
-  <app-hotel  *ngFor="let hotel of trip.Hotel" [TripId]="TripId" [Hoteldetails]="hotel"></app-hotel>
-  <app-car    *ngFor="let Car of trip.Car" [TripId]="TripId" [Cardetails]="Car"></app-car>
+  <app-flight *ngIf="trip.flight" [TripId]="TripId" [Flightdetails]="trip.flight" class="margin-top-1"></app-flight>
+  <app-hotel  *ngFor="let hotel of trip.hotel" [TripId]="TripId" [Hoteldetails]="hotel"></app-hotel>
+  <app-car    *ngFor="let Car of trip.car" [TripId]="TripId" [Cardetails]="Car"></app-car>
   <app-payment [trip]="trip"></app-payment>
   </div>
 </div>

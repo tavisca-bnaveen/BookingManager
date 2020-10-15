@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators,AbstractControl} from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { async } from 'rxjs/internal/scheduler/async';
 import { AuthenticateUsers } from 'src/app/Models/Users';
 import { AuthencticationService } from 'src/app/Services/Auth0/authenctication.service';
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   private users:AuthenticateUsers;
   formLogin:FormGroup;
-  constructor(private authenctication : AuthencticationService , private loginService:LoginService,private router: Router) {
+  constructor(private authenctication : AuthencticationService , private loginService:LoginService,private router: Router,private spinner:NgxSpinnerService) {
     this.users=new AuthenticateUsers(loginService);
     this.formLogin= new FormGroup({
       formEmail:new FormControl(this.username,
@@ -36,11 +37,15 @@ export class LoginComponent implements OnInit {
   username:string;
   password:string;
   ngOnInit() {
+    this.spinner.show();
     this.formLogin.setValue({'formEmail':"","formPassword":""});
     console.log("allusers"+JSON.stringify( this.users.GetAllUsers()));
     this.LoginError=false;
     if(localStorage.getItem('TokenManager') == 'fool')
         localStorage.removeItem('TokenManager');
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 1000);
   }
   onlogin(){
     

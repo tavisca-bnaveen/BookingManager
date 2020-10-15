@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Car } from 'src/app/Models/Car';
 import { IndiviualStatus } from 'src/app/Models/status';
+import { TripserviceService } from 'src/app/Services/TripService/tripservice.service';
 
 @Component({
   selector: 'app-car',
@@ -28,7 +29,7 @@ export class CarComponent implements OnInit {
     return this.cardetails;
   }
 
-  constructor() { }
+  constructor(private tripservice:TripserviceService) { }
 
   ngOnInit() {
     var _confirm=IndiviualStatus[IndiviualStatus.Confirm];
@@ -36,6 +37,15 @@ export class CarComponent implements OnInit {
     {
       this.confirm=true;
     }
+  }
+  CancelCar(){
+    this.tripservice.CancelCar(this.tripid,this.cardetails.id).subscribe(
+      data => {
+        this.confirm=false;
+        this.cardetails.status= IndiviualStatus[IndiviualStatus.Cancel];
+        window.location.reload();
+      }
+    )
   }
 
 }

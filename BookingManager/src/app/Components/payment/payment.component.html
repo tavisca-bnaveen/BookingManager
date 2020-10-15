@@ -8,18 +8,18 @@
     <div class="discount"><strong>Discount</strong></div>
 
   </div>
-  <div class="payment-values" *ngIf="Trip.Flight">
-    <div class="component">{{Trip.Flight.Type}}-{{Trip.Flight.PNR}}</div>
-    <div class="cost">{{Trip.Flight.cost| currency:'USD'}}</div>
-    <div class="discount">{{Trip.Flight.discount | currency:'USD'}}</div>
+  <div class="payment-values" *ngIf="Trip.flight">
+    <div class="component">{{Trip.flight.type}}-{{Trip.flight.pnr}}</div>
+    <div class="cost">{{Trip.flight.cost| currency:'USD'}}</div>
+    <div class="discount">{{Trip.flight.discount | currency:'USD'}}</div>
   </div>
-  <div class="payment-values" *ngFor="let hotel of Trip.Hotel">
-    <div class="component">{{hotel.Name}}</div>
+  <div class="payment-values" *ngFor="let hotel of Trip.hotel">
+    <div class="component">{{hotel.name}}</div>
     <div class="cost">{{hotel.cost| currency:'USD'}}</div>
     <div class="discount">{{hotel.discount | currency:'USD'}}</div>
   </div>
-  <div class="payment-values" *ngFor="let car of Trip.Car">
-    <div class="component">{{car.Name}}</div>
+  <div class="payment-values" *ngFor="let car of Trip.car">
+    <div class="component">{{car.name}}</div>
     <div class="cost">{{car.cost| currency:'USD'}}</div>
     <div class="discount">{{car.discount | currency:'USD'}}</div>
   </div>

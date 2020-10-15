@@ -3,17 +3,17 @@
     <div class=" Hotel-details">
       <div class="Hotel-name">
       <img src="../../../assets/hotel-icon.webp" class="hotel-icon" alt="hotel">
-      <span class="location-name">{{hoteldetails.Name}}({{hoteldetails.Location}})</span>
+      <span class="location-name">{{hoteldetails.name}}({{hoteldetails.location}})</span>
         </div>
         <div class="check-in-out">
-          <span class="checkin">Checkin <strong>{{hoteldetails.CheckIn}} </strong></span>
-          <span class="margin-left-1">Checkout <strong>{{hoteldetails.Checkout}} </strong></span>
+          <span class="checkin">Checkin <strong>{{hoteldetails.checkIn}} </strong></span>
+          <span class="margin-left-1">Checkout <strong>{{hoteldetails.checkout}} </strong></span>
       </div>
       <div class="tenants-details">
-        <span class="tenants">Guest/s <strong> {{hoteldetails.TravellerInfo}}</strong> </span>
-        <span class="margin-left-1"> People <strong>{{hoteldetails.PeopleCount}}</strong></span>
+        <span class="tenants">Guest/s <strong> {{hoteldetails.travellerInfo}}</strong> </span>
+        <span class="margin-left-1"> People <strong>{{hoteldetails.peopleCount}}</strong></span>
       </div>
-      <p>Rating <strong>{{hoteldetails.Rating}}</strong> </p>
+      <p>Rating <strong>{{hoteldetails.rating}}</strong> </p>
       <!-- <p class="Hotel-price">Total Hotel Price- <strong>{{hoteldetails.TotalPrice | currency:'USD'}}</strong></p> -->
     </div>
     <div class="Hotel-status">
@@ -24,7 +24,7 @@
         <button [BackColorHover]="'#0A5783'">Check Status</button>
       </div>
       <div class="Cancel-Hotel" *ngIf="confirm">
-        <button [BackColorHover]="'#0A5783'">Cancel Hotel</button>
+        <button [BackColorHover]="'#0A5783'" (click)="CancelHotel()">Cancel Hotel</button>
       </div>
     </div>
   </div>

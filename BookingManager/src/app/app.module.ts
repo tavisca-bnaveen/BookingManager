@@ -16,6 +16,7 @@ import { ItineraryComponent } from './Components/itinerary/itinerary.component';
 import { PaymentComponent } from './Components/payment/payment.component';
 import { ViewColorDirective } from './CustomDirectives/View.Directive.Color';
 import { AddClassDirective } from './CustomDirectives/AddClass.hover.Directive';
+import {NgxSpinnerModule} from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,7 @@ import { AddClassDirective } from './CustomDirectives/AddClass.hover.Directive';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
+    HttpClientModule,NgxSpinnerModule,
     CommonModule,ReactiveFormsModule
   ],
   providers: [AuthGuard],
