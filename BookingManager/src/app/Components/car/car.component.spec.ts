@@ -1,0 +1,91 @@
+import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormGroup, FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { AppComponent } from 'src/app/app.component';
+
+import { FlightComponent } from '../flight/flight.component';
+
+import { HotelComponent } from '../hotel/hotel.component';
+import { ItineraryComponent } from '../itinerary/itinerary.component';
+import { PaymentComponent } from '../payment/payment.component';
+import { PostBookingComponent } from '../post-booking/post-booking.component';
+
+import {APP_BASE_HREF} from '@angular/common';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ViewColorDirective } from 'src/app/CustomDirectives/View.Directive.Color';
+import { AddClassDirective } from 'src/app/CustomDirectives/AddClass.hover.Directive';
+import { LoginComponent } from '../login/login.component';
+import { HeaderComponent } from '../header/header.component';
+import { CarComponent } from './car.component';
+import { IndiviualStatus } from 'src/app/Models/status';
+import { Car } from 'src/app/Models/Car';
+
+describe('CarComponent', () => {
+    let component: CarComponent;
+    let fixture: ComponentFixture<CarComponent>;
+    let button:HTMLElement;
+  
+    beforeEach(async(() => {
+      TestBed.configureTestingModule({
+        declarations: [ AppComponent,
+          LoginComponent,
+          HeaderComponent,
+          PostBookingComponent,
+          FlightComponent,
+          HotelComponent,
+          CarComponent,
+          ItineraryComponent,
+          PaymentComponent,ViewColorDirective,AddClassDirective],
+        imports:[BrowserModule,
+          AppRoutingModule,
+          FormsModule,
+          HttpClientModule,NgxSpinnerModule,
+          CommonModule,ReactiveFormsModule],
+        providers: [{provide: APP_BASE_HREF, useValue : '/' }]
+      })
+      .compileComponents();
+    }));
+  
+    beforeEach(() => {
+      localStorage.setItem('TokenManager','bnaveen@tavisca.com');
+      fixture = TestBed.createComponent(CarComponent);
+      component = fixture.componentInstance;
+      let car =new Car;
+      car.id ="01";
+      car.name="BMW";
+      car.pickUp="Lax";
+      car.pickupdate="01-10-2020";
+      component.confirm=true;
+      component.carStatus="Confirm";
+      car.status=IndiviualStatus.Confirm;
+      car.dropOff="Las";
+      car.dropOffDate="05-10-2020";
+      car.cost="100";
+      car.discount="0";
+      component.TripId="12345";
+      component.tripid=component.TripId;
+      component.Cardetails= car;
+      component.cardetails=component.Cardetails;
+      
+      fixture.detectChanges();
+    });
+    it('should get the car status ',()=>{
+        component._Confirm="0";
+        component.ngOnInit();
+        component.getCarStatus();
+        // fixture.detectChanges();
+        expect().nothing;
+    });
+    it('should send  car cancellation request  ',()=>{
+        component._Confirm="0";
+        component.ngOnInit();
+        component.CancelCar();
+        // fixture.detectChanges();
+        expect().nothing;
+    });
+
+});

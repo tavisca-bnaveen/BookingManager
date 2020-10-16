@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.spinner.show();
     this.formLogin.setValue({'formEmail':"","formPassword":""});
-    console.log("allusers"+JSON.stringify( this.users.GetAllUsers()));
+    // console.log("allusers"+JSON.stringify( this.users.GetAllUsers()));
     this.LoginError=false;
     if(localStorage.getItem('TokenManager') == 'fool')
         localStorage.removeItem('TokenManager');

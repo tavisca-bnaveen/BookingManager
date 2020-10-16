@@ -30,4 +30,14 @@ export class TripserviceService {
   CancelCar(TripId:string,Id:string){
     return this.http.delete<boolean>("https://localhost:44389/api/Booking/CancelCar?TripId="+TripId+"&Id="+Id);
   }
+  GetFlightStatus(TripId:string,PNR:string){
+    //return this.http.get<string>("https://localhost:44389/api/Booking/GetFlightStatus?TripId=12345&PNR=QWERTY",{responseType:'text' as 'json'});
+    return this.http.get<string>("https://localhost:44389/api/Booking/GetFlightStatus?TripId="+TripId+"&PNR="+PNR,{responseType:'text' as 'json'});
+  }
+  GetHotelStatus(TripId:string,Id:string){
+    return this.http.get<string>("https://localhost:44389/api/Booking/GetHotelStatus?TripId="+TripId+"&Id="+Id,{responseType:'text' as 'json'});
+  }
+  GetCarStatus(TripId:string,Id:string){
+    return this.http.get<string>("https://localhost:44389/api/Booking/GetCarStatus?TripId="+TripId+"&Id="+Id,{responseType:'text' as 'json'});
+  }
 }

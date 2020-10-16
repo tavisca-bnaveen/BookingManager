@@ -31,25 +31,35 @@ export class HotelComponent implements OnInit {
   }
 
   constructor(private tripservice:TripserviceService) { }
-
+  hotelStatus:string;
+  _Confirm="Confirm"
   ngOnInit() {
-    var _confirm=IndiviualStatus[IndiviualStatus.Confirm];
+    var _confirm=this._Confirm;
     if(this.hoteldetails.status.toString() === _confirm.toString() )
     {
       this.confirm=true;
       
     }
+    this.hotelStatus=this.hoteldetails.status.toString();
       
   }
   CancelHotel(){
       this.tripservice.CancelHotel(this.TripId,this.hoteldetails.id).subscribe(
         data => {
           this.confirm=false;
-          this.hoteldetails.status= IndiviualStatus[IndiviualStatus.Cancel].toString();
+          this.hotelStatus= IndiviualStatus[IndiviualStatus.Cancel].toString();
           window.location.reload();
         }
       )
       //window.location.reload();
+  }
+  getHotelStatus(){
+    this.tripservice.GetHotelStatus(this.TripId,this.hoteldetails.id).subscribe(
+      data => {
+        this.hotelStatus=data;
+        window.location.reload();
+      }
+    )
   }
 
 }

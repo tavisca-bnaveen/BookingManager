@@ -30,19 +30,29 @@ export class CarComponent implements OnInit {
   }
 
   constructor(private tripservice:TripserviceService) { }
-
+  carStatus:string;
+  _Confirm="Confirm";
   ngOnInit() {
-    var _confirm=IndiviualStatus[IndiviualStatus.Confirm];
+    var _confirm=this._Confirm;
     if(this.cardetails.status.toString() === _confirm.toString() )
     {
       this.confirm=true;
     }
+    this.carStatus=this.cardetails.status.toString();
   }
   CancelCar(){
     this.tripservice.CancelCar(this.tripid,this.cardetails.id).subscribe(
       data => {
         this.confirm=false;
-        this.cardetails.status= IndiviualStatus[IndiviualStatus.Cancel];
+        this.carStatus= IndiviualStatus[IndiviualStatus.Cancel];
+        window.location.reload();
+      }
+    )
+  }
+  getCarStatus(){
+    this.tripservice.GetCarStatus(this.tripid,this.cardetails.id).subscribe(
+      data => {
+        this.carStatus=data;
         window.location.reload();
       }
     )
