@@ -29,9 +29,10 @@ export class FlightComponent implements OnInit {
   constructor(private tripservice:TripserviceService) { }
   cancel:boolean
   flightStatus:string;
+  _Cancel="Cancel";
   ngOnInit() {
     this.cancel=false;
-    var _cancel=FlightStatus[FlightStatus.Cancel];
+    var _cancel=this._Cancel;
     if(this.flightdetails.status.toString().toLowerCase() === _cancel.toString().toLowerCase() )
     {
       this.cancel=true;

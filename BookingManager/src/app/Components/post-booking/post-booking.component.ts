@@ -28,7 +28,7 @@ export class PostBookingComponent implements OnInit {
   @Output()
   UserData= new EventEmitter<Profile>();
   CurrentTrip:Trip;
-  constructor(private activatedRoute: ActivatedRoute,private router:Router,private auth0 : AuthencticationService,private tripservice:TripserviceService,private loginservice:LoginService,
+  constructor(public activatedRoute: ActivatedRoute,private router:Router,private auth0 : AuthencticationService,private tripservice:TripserviceService,private loginservice:LoginService,
     private spinner:NgxSpinnerService) {
     this.AllUsers = new AuthenticateUsers(loginservice);
    }
@@ -67,7 +67,7 @@ export class PostBookingComponent implements OnInit {
     else{
       this.header=true
       
-      if(!localStorage.getItem('TokenManager') && localStorage.getItem('TokenManager').toLowerCase() !='fool'){
+      if(localStorage.getItem('TokenManager') && localStorage.getItem('TokenManager').toLowerCase() =='fool'){
         this.router.navigateByUrl('Login');
       }
     }
@@ -92,18 +92,18 @@ export class PostBookingComponent implements OnInit {
     
 
   }
-  GetMyTrips(){
+  // GetMyTrips(){
     
-    this.tripservice.GetAllTrips(localStorage.getItem('TokenManager')).subscribe(
-      data=>{
-        this.AllTrips=data;
+  //   this.tripservice.GetAllTrips(localStorage.getItem('TokenManager')).subscribe(
+  //     data=>{
+  //       this.AllTrips=data;
         
         
-      }
+  //     }
       
-    );
+  //   );
     
-  }
+  // }
   ViewItinerayDetails(trip:Trip){
     this.TripId=trip.id;
     this.CurrentTrip=trip;

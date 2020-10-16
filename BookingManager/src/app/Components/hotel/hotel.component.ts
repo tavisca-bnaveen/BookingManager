@@ -32,8 +32,9 @@ export class HotelComponent implements OnInit {
 
   constructor(private tripservice:TripserviceService) { }
   hotelStatus:string;
+  _Confirm="Confirm"
   ngOnInit() {
-    var _confirm=IndiviualStatus[IndiviualStatus.Confirm];
+    var _confirm=this._Confirm;
     if(this.hoteldetails.status.toString() === _confirm.toString() )
     {
       this.confirm=true;

@@ -15,6 +15,9 @@ import { PaymentComponent } from '../payment/payment.component';
 import { PostBookingComponent } from '../post-booking/post-booking.component';
 import { LoginComponent } from './login.component';
 import {APP_BASE_HREF} from '@angular/common';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ViewColorDirective } from 'src/app/CustomDirectives/View.Directive.Color';
+import { AddClassDirective } from 'src/app/CustomDirectives/AddClass.hover.Directive';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -31,11 +34,11 @@ describe('LoginComponent', () => {
         HotelComponent,
         CarComponent,
         ItineraryComponent,
-        PaymentComponent],
+        PaymentComponent,ViewColorDirective,AddClassDirective],
       imports:[BrowserModule,
         AppRoutingModule,
         FormsModule,
-        HttpClientModule,
+        HttpClientModule,NgxSpinnerModule,
         CommonModule,ReactiveFormsModule],
       providers: [{provide: APP_BASE_HREF, useValue : '/' }]
     })
@@ -82,6 +85,6 @@ describe('LoginComponent', () => {
     button= element.querySelector('.login-sumbit');
     const googleButtonClick= button.dispatchEvent(new Event('click'));
     fixture.detectChanges();
-    expect(localStorage.getItem('TokenManager')).toEqual('bnaveen@tavisca.com');
+    expect(localStorage.getItem('TokenManager')).toEqual(null);
   });
 });
