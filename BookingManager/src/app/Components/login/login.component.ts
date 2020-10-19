@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators,AbstractControl} from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { async } from 'rxjs/internal/scheduler/async';
+import { LoginDetails } from 'src/app/Models/LoginDetails';
 import { AuthenticateUsers } from 'src/app/Models/Users';
 import { AuthencticationService } from 'src/app/Services/Auth0/authenctication.service';
 import { LoginService } from 'src/app/Services/Login/login.service';
 import { LoginCustomValidator } from './login.customvalidator';
+import { LoginAction, RememberAction } from './State/Login.Actions';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   private users:AuthenticateUsers;
   formLogin:FormGroup;
-  constructor(private authenctication : AuthencticationService , private loginService:LoginService,private router: Router,private spinner:NgxSpinnerService) {
+  constructor(private authenctication : AuthencticationService , private loginService:LoginService,private router: Router,private spinner:NgxSpinnerService,private store:Store<any>) {
     this.users=new AuthenticateUsers(loginService);
     this.formLogin= new FormGroup({
       formEmail:new FormControl(this.username,
@@ -31,6 +34,17 @@ export class LoginComponent implements OnInit {
         ]))
       }
     );
+    var _details= new LoginDetails();
+    _details.Email=this.formLogin.controls.formEmail.value;
+    _details.Password=this.formLogin.controls.formPassword.value;
+    // this.store.select('Login').subscribe(
+    //   values => {
+    //     if (values) {
+          
+    //     }
+    //   });
+    // store.dispatch(RememberAction({remember:true}));
+    // store.dispatch(LoginAction({details:_details}));
   }
  
   LoginError:boolean;

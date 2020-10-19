@@ -90,11 +90,11 @@
 
 }
 .view-itinerary{
-    background-color: #128820;
-    color: white;
+    background-color: white;
+    color: #128820;
     padding:6px 25px;
     cursor: pointer;
-    border: none;
+    border: 1px solid #128820;
     border-radius: 3px;
 }
 .myTrips{
