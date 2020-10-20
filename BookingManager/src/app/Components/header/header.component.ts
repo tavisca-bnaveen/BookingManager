@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Profile } from 'src/app/Models/UserProfile';
+import { LoggedOutAction } from '../login/State/Login.Actions';
+import { LoginAppState } from '../login/State/Login.Reducer';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +12,7 @@ import { Profile } from 'src/app/Models/UserProfile';
 })
 export class HeaderComponent implements OnInit {
   Name:string;
-  constructor(private router: Router) { }
+  constructor(private router: Router, private store:Store<LoginAppState>) { }
   UserData:Profile
   profilepicture:string
   @Input()
@@ -19,7 +22,7 @@ export class HeaderComponent implements OnInit {
   get userdata(): Profile {
     return this.UserData;
   }
-
+  
   ngOnInit() {
     //console.log("header"+ JSON.stringify(this.UserData));
     this.profilepicture=localStorage.getItem('picture');
@@ -28,7 +31,9 @@ export class HeaderComponent implements OnInit {
   }
   Logout(){
     localStorage.clear();
+    this.store.dispatch(LoggedOutAction());
     this.router.navigateByUrl('Login');
+
   }
   home(){
     // console.log("try to go home");

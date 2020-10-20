@@ -12,3 +12,4 @@ export const GetLoginState = createSelector(
     LoginSelector,
     state => state
 );
+export const GetLoginstatus =createSelector(LoginSelector,state=>state.IsLoginThroughApi);

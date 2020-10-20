@@ -20,6 +20,8 @@ import {NgxSpinnerModule} from 'ngx-spinner';
 import { StoreModule } from '@ngrx/store';
 import { LoginReducer } from './Components/login/State/Login.Reducer';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { LoginEffects } from './Components/login/State/Login.Effects';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +45,8 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
       name:"Booking Manager",
       maxAge:40,
       
-    })
+    }),
+    EffectsModule.forRoot([LoginEffects])
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
