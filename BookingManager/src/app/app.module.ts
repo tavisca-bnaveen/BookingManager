@@ -17,6 +17,8 @@ import { PaymentComponent } from './Components/payment/payment.component';
 import { ViewColorDirective } from './CustomDirectives/View.Directive.Color';
 import { AddClassDirective } from './CustomDirectives/AddClass.hover.Directive';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import { StoreModule } from '@ngrx/store';
+import { LoginReducer } from './Components/login/State/Login.Reducer';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import {NgxSpinnerModule} from 'ngx-spinner';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,NgxSpinnerModule,
-    CommonModule,ReactiveFormsModule
+    CommonModule,ReactiveFormsModule,StoreModule.forRoot({})
+    ,StoreModule.forFeature("Login",LoginReducer)
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

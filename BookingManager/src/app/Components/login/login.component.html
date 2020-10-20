@@ -17,6 +17,9 @@
           <p *ngIf="formLogin.controls.formPassword.errors.required">Password is required</p>
         </div>
       </div>
+      <div class="remember" (click)="RememberValues()">
+        <input type="checkbox" [checked]="Checked">Remember
+      </div>
       <div class="form-group flex">
         <button value="Login" (click)="onlogin()" class="login-sumbit" [disabled]="!formLogin.valid" [BackColorHover]="'gray'">
           Login

@@ -60,7 +60,7 @@ describe('PaymentComponent', () => {
         localStorage.setItem('TokenManager','bnaveen@tavisca.com');
         fixture = TestBed.createComponent(PaymentComponent);
         component = fixture.componentInstance;
-        component._Cancel="0";
+        component._Cancel="1";
         let _car =new Car;
         let _flight =new Flight;
         let _hotel =new Hotel;
@@ -68,7 +68,7 @@ describe('PaymentComponent', () => {
         _car.name="BMW";
         _car.pickUp="Lax";
         _car.pickupdate="01-10-2020";
-        _car.status=IndiviualStatus.Confirm;
+        _car.status=IndiviualStatus.Cancel;
         _car.dropOff="Las";
         _car.dropOffDate="05-10-2020";
         _car.cost="100";
@@ -90,7 +90,7 @@ describe('PaymentComponent', () => {
         _hotel.name="BMW";
         _hotel.location="Lax";
         _hotel.checkin="01-10-2020";
-        _hotel.status=IndiviualStatus.Confirm;
+        _hotel.status=IndiviualStatus.Cancel;
         _hotel.checkout="05-10-2020";
         _hotel.cost="100";
         _hotel.discount="0";
@@ -109,6 +109,7 @@ describe('PaymentComponent', () => {
         fixture.detectChanges();
       });
       it('should calculate total amount', () => {
+          
         const element = fixture.nativeElement;
         
         component.ngOnInit();
