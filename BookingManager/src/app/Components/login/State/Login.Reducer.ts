@@ -2,17 +2,25 @@ import { state } from '@angular/animations';
 import { EmailValidator } from '@angular/forms';
 import { createAction, createReducer, on, props } from '@ngrx/store';
 import { RememberAction,LoginAction } from './Login.Actions';
+import * as AppState from './../../../NgrxState/app.ngrxstate';
 
-export const Intialstate={
+
+export interface LoginState{
+    Remember:boolean;
+    Email:string;
+    Password:string;
+}
+export interface LoginAppState extends AppState.State{
+    Login:LoginState;
+}
+export const Intialstate:LoginState={
     Remember:false,
     Email:"",
     Password:"",
 }
 export const LoginReducer=createReducer(Intialstate,
-    on(RememberAction,(state,{remember})=>{
-        // console.log("Hi from remember")
-        // console.log(state);
-        
+    on(RememberAction,(state,{remember}) : LoginState=>{
+
         return {
             ...state,
             Remember:remember
