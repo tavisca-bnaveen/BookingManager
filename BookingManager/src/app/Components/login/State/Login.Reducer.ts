@@ -10,6 +10,8 @@ export const Intialstate={
 }
 export const LoginReducer=createReducer(Intialstate,
     on(RememberAction,(state,{remember})=>{
+        // console.log("Hi from remember")
+        // console.log(state);
         
         return {
             ...state,

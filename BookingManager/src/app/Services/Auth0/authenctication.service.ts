@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Profile } from 'src/app/Models/UserProfile';
+import { AuthConfig } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,12 +20,15 @@ export class AuthencticationService {
     console.log(token_type+' '+ access_token);
     
 
-    return this.http.get<Profile>('https://dev-v-ngyyfa.us.auth0.com/userinfo',{headers:headers});
+    return this.http.get<Profile>('https://'+AuthConfig.DomainId+AuthConfig.Api.profile,{headers:headers});
     //https:domain/userinfo
   }
   GetAuth0Authorization(){
-    return "https://dev-v-ngyyfa.us.auth0.com/authorize?response_type=token&client_id=N7XVAjoPzdW9SKrb4kU3aj6bvUDIssp3&connection=google-oauth2&redirect_uri=http://localhost:4200/PostBooking&scope=openid%20profile%20email";
+    var Auth0GmailUrl= "https://"+AuthConfig.DomainId+AuthConfig.Api.login+"?response_type="+AuthConfig.Response_Type.token+"&client_id="+AuthConfig.ClientId+"&connection="+AuthConfig.connection.gmail+"&redirect_uri="+AuthConfig.redirect_uri.success+"&scope="+AuthConfig.scope;
+    
+    return Auth0GmailUrl;
   }
+  
   // https:// domainid/authorize?response_type=token&cliend_id=&connection=google-oauth2&redirect_uri=&scope=openid%20profile%20email
 
 }

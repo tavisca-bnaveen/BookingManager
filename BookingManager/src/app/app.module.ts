@@ -37,7 +37,7 @@ import { LoginReducer } from './Components/login/State/Login.Reducer';
     FormsModule,
     HttpClientModule,NgxSpinnerModule,
     CommonModule,ReactiveFormsModule,StoreModule.forRoot({})
-    // StoreModule.forFeature("Login",LoginReducer)
+    ,StoreModule.forFeature("Login",LoginReducer)
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

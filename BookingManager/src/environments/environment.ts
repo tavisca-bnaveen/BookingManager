@@ -6,6 +6,26 @@ export const environment = {
   production: false
 };
 
+export const AuthConfig ={
+  
+  DomainId:"dev-v-ngyyfa.us.auth0.com",
+  ClientId:"N7XVAjoPzdW9SKrb4kU3aj6bvUDIssp3",
+  Response_Type:{
+    "token":"token",
+    "code":"code"
+  },
+  Api:{
+    "login":"/authorize",
+    "profile":"/userinfo"
+  },
+  connection:{
+    "gmail":"google-oauth2"
+  },
+  redirect_uri: {
+    "success":"http://localhost:4200/PostBooking"
+  },
+  scope:"openid%20profile%20email"
+}
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

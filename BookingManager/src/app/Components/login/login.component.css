@@ -102,3 +102,7 @@ button:disabled{
     text-align: center;
     margin: 0;
 }
+.remember{
+    font-size: 16px;
+    margin-top: 5px;
+}

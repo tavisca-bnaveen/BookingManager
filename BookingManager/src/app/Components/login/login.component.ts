@@ -34,25 +34,29 @@ export class LoginComponent implements OnInit {
         ]))
       }
     );
-    var _details= new LoginDetails();
-    _details.Email=this.formLogin.controls.formEmail.value;
-    _details.Password=this.formLogin.controls.formPassword.value;
-    // this.store.select('Login').subscribe(
-    //   values => {
-    //     if (values) {
-          
-    //     }
-    //   });
-    // store.dispatch(RememberAction({remember:true}));
-    // store.dispatch(LoginAction({details:_details}));
+    
+    
   }
  
   LoginError:boolean;
   username:string;
   password:string;
+  Remember:boolean;
+  StateEmail:string;
+  StatePassword:string;
+  Checked:boolean;
   ngOnInit() {
+    this.Checked=false;
     this.spinner.show();
     this.formLogin.setValue({'formEmail':"","formPassword":""});
+    this.store.select('Login').subscribe(
+      values => {
+        if (values) {
+          // console.log("hey"+JSON.stringify(values))
+          if(values.Remember==true)
+            this.formLogin.setValue({'formEmail':values.Email,"formPassword":values.Password})
+        }
+      });
     // console.log("allusers"+JSON.stringify( this.users.GetAllUsers()));
     this.LoginError=false;
     if(localStorage.getItem('TokenManager') == 'fool')
@@ -62,9 +66,12 @@ export class LoginComponent implements OnInit {
     }, 1000);
   }
   onlogin(){
+    var _details= new LoginDetails();
+    _details.Email=this.formLogin.controls.formEmail.value;
+    _details.Password=this.formLogin.controls.formPassword.value;
     
-    // console.log(this.formLogin.controls.formEmail.value);
-    // console.log(this.formLogin.controls.formPassword.value);
+      //store.dispatch
+    this.store.dispatch(LoginAction({details:_details}));
     this.username=this.formLogin.controls.formEmail.value.toString();
     this.loginService.GetAuthentication(this.formLogin.controls.formEmail.value,this.formLogin.controls.formPassword.value)
     .subscribe(data => {
@@ -85,5 +92,9 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('TokenManager','fool');
     window.location.href= this.authenctication.GetAuth0Authorization();
     
+  }
+  RememberValues(){
+    this.Checked=!this.Checked;
+    this.store.dispatch(RememberAction({remember:this.Checked}));
   }
 }
