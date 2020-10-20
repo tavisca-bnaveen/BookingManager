@@ -19,6 +19,9 @@ import { AddClassDirective } from './CustomDirectives/AddClass.hover.Directive';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import { StoreModule } from '@ngrx/store';
 import { LoginReducer } from './Components/login/State/Login.Reducer';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { LoginEffects } from './Components/login/State/Login.Effects';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,13 @@ import { LoginReducer } from './Components/login/State/Login.Reducer';
     FormsModule,
     HttpClientModule,NgxSpinnerModule,
     CommonModule,ReactiveFormsModule,StoreModule.forRoot({})
-    ,StoreModule.forFeature("Login",LoginReducer)
+    ,StoreModule.forFeature("Login",LoginReducer),
+    StoreDevtoolsModule.instrument({
+      name:"Booking Manager",
+      maxAge:40,
+      
+    }),
+    EffectsModule.forRoot([LoginEffects])
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

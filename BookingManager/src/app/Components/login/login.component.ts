@@ -9,7 +9,9 @@ import { AuthenticateUsers } from 'src/app/Models/Users';
 import { AuthencticationService } from 'src/app/Services/Auth0/authenctication.service';
 import { LoginService } from 'src/app/Services/Login/login.service';
 import { LoginCustomValidator } from './login.customvalidator';
-import { LoginAction, RememberAction } from './State/Login.Actions';
+import { LoginAction, RememberAction, SendLoginRequest } from './State/Login.Actions';
+import { LoginAppState } from './State/Login.Reducer';
+import { GetLoginState, GetLoginstatus, GetRemembervalue } from './State/Login.Selector';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   private users:AuthenticateUsers;
   formLogin:FormGroup;
-  constructor(private authenctication : AuthencticationService , private loginService:LoginService,private router: Router,private spinner:NgxSpinnerService,private store:Store<any>) {
+  constructor(private authenctication : AuthencticationService , private loginService:LoginService,private router: Router,private spinner:NgxSpinnerService,private store:Store<LoginAppState>) {
     this.users=new AuthenticateUsers(loginService);
     this.formLogin= new FormGroup({
       formEmail:new FormControl(this.username,
@@ -49,15 +51,16 @@ export class LoginComponent implements OnInit {
     this.Checked=false;
     this.spinner.show();
     this.formLogin.setValue({'formEmail':"","formPassword":""});
-    this.store.select('Login').subscribe(
+    this.store.select(GetLoginState).subscribe(
       values => {
         if (values) {
-          // console.log("hey"+JSON.stringify(values))
-          if(values.Remember==true)
+          if(values.Remember)
             this.formLogin.setValue({'formEmail':values.Email,"formPassword":values.Password})
         }
       });
-    // console.log("allusers"+JSON.stringify( this.users.GetAllUsers()));
+      this.store.select(GetRemembervalue).subscribe(
+        value => this.Checked=value
+      )
     this.LoginError=false;
     if(localStorage.getItem('TokenManager') == 'fool')
         localStorage.removeItem('TokenManager');
@@ -70,22 +73,32 @@ export class LoginComponent implements OnInit {
     _details.Email=this.formLogin.controls.formEmail.value;
     _details.Password=this.formLogin.controls.formPassword.value;
     
-      //store.dispatch
-    this.store.dispatch(LoginAction({details:_details}));
+    //store.dispatch   
+    this.store.dispatch(RememberAction({remember:this.Checked}));
+    let _remember=false;
+    this.store.select(GetRemembervalue).subscribe(
+      value => _remember=value
+    )
+    if(_remember){
+      this.store.dispatch(LoginAction({details:_details}));
+      
+    }
+    this.store.dispatch(SendLoginRequest({details:_details}));
     this.username=this.formLogin.controls.formEmail.value.toString();
-    this.loginService.GetAuthentication(this.formLogin.controls.formEmail.value,this.formLogin.controls.formPassword.value)
-    .subscribe(data => {
-      console.log(data);
-      if(data){
-        localStorage.setItem('TokenManager',this.formLogin.controls.formEmail.value);
-        localStorage.setItem('Name',this.username.substr(0,this.username.indexOf('@')));
-        localStorage.setItem('picture','https://www.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png')
-        this.router.navigateByUrl('PostBooking');
-      }
-      else{
-        this.LoginError=true;
-      }
-    })
+    this.store.select(GetLoginstatus).subscribe(
+      data => {
+          
+          if(data){
+            localStorage.setItem('TokenManager',this.formLogin.controls.formEmail.value);
+            localStorage.setItem('Name',this.username.substr(0,this.username.indexOf('@')));
+            localStorage.setItem('picture','https://www.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png')
+            this.router.navigateByUrl('PostBooking');
+          }
+          else{
+            this.LoginError=true;
+          }
+        }
+    )
     
   }
   onGooglelogin(){
@@ -95,6 +108,7 @@ export class LoginComponent implements OnInit {
   }
   RememberValues(){
     this.Checked=!this.Checked;
-    this.store.dispatch(RememberAction({remember:this.Checked}));
+    
+
   }
 }
