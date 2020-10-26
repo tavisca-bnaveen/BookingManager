@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing';
 import { FormGroup, FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -26,12 +26,19 @@ import { Car } from 'src/app/Models/Car';
 import { CarComponent } from '../car/car.component';
 import { HotelComponent } from './hotel.component';
 import { Hotel } from 'src/app/Models/Hotel';
+import { StoreModule } from '@ngrx/store';
+import { LoginReducer } from '../login/State/Login.Reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { LoginEffects } from '../login/State/Login.Effects';
+import { EffectsModule } from '@ngrx/effects';
+import { TripserviceService } from 'src/app/Services/TripService/tripservice.service';
+import { of } from 'rxjs';
 
 describe('HotelComponent', () => {
     let component: HotelComponent;
     let fixture: ComponentFixture<HotelComponent>;
     let button:HTMLElement;
-  
+    let _tripService;
     beforeEach(async(() => {
       TestBed.configureTestingModule({
         declarations: [ AppComponent,
@@ -47,13 +54,21 @@ describe('HotelComponent', () => {
           AppRoutingModule,
           FormsModule,
           HttpClientModule,NgxSpinnerModule,
-          CommonModule,ReactiveFormsModule],
+          CommonModule,ReactiveFormsModule,StoreModule.forRoot({})
+          ,StoreModule.forFeature("Login",LoginReducer),
+          StoreDevtoolsModule.instrument({
+            name:"Booking Manager",
+            maxAge:40,
+            
+          }),
+          EffectsModule.forRoot([LoginEffects])],
         providers: [{provide: APP_BASE_HREF, useValue : '/' }]
       })
       .compileComponents();
     }));
   
-    beforeEach(() => {
+    beforeEach(inject([TripserviceService],s => {
+      _tripService=s;
       localStorage.setItem('TokenManager','bnaveen@tavisca.com');
       fixture = TestBed.createComponent(HotelComponent);
       component = fixture.componentInstance;
@@ -74,7 +89,7 @@ describe('HotelComponent', () => {
       component.hoteldetails=component.Hoteldetails;
       
       fixture.detectChanges();
-    });
+    }));
     it('should get hotel status',()=>{
         component._Confirm="0";
         component.ngOnInit();
@@ -89,4 +104,21 @@ describe('HotelComponent', () => {
         expect().nothing;
 
     });
+    it('should test cancel hotel',()=>{
+      const response=true;
+      component.hoteldetails.id="01";
+      component.TripId="12345";
+      spyOn(_tripService,'CancelHotel').and.returnValue(of(response));
+      component.CancelHotel();
+      expect(component.confirm).toEqual(false);
+    })
+    it('should test get car status',()=>{
+      const response="Cancel";
+      component.hoteldetails.id="01";
+      component.TripId="12345";
+      component.hotelStatus="Confirm";
+      spyOn(_tripService,'GetHotelStatus').and.returnValue(of(response));
+      component.getHotelStatus();
+      expect(component.hotelStatus).toEqual("Cancel");
+    })
 });

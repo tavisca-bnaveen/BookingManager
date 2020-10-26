@@ -3,20 +3,31 @@
     background-color: white;
     padding: 20px;
     box-shadow: 0 2px 0.4px 0 rgba(0,0,0,0.1);
-    border:none;
-    border-radius: 5px;
+    border: 2px solid cornflowerblue;
+    border-radius: 0 0 5px 5px;
     width: 50%;
-    margin: 10px auto;
+    margin: 0 auto;
+}
+.car-header{
+    display: flex;
+    padding: 8px 20px;
+    width: 50%;
+    margin: auto;
+    background: cornflowerblue;
+    color: white;
+    border-radius: 2px 2px 0 0;
+    border: 2px solid cornflowerblue;
+    margin-top: 15px;
 }
 @media(max-width:768px){
-    .Car-Card{
+    .Car-Card,.car-header{
         width: 95%;
         padding: 10px;
     }
 }
 @media(min-width:769px){
     @media(max-width:1025px){
-        .Car-Card{
+        .Car-Card,.car-header{
             width: 60%;
         }
     }

@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   private users:AuthenticateUsers;
   formLogin:FormGroup;
-  constructor(private authenctication : AuthencticationService , private loginService:LoginService,private router: Router,private spinner:NgxSpinnerService,private store:Store<LoginAppState>) {
+  constructor(private authenctication : AuthencticationService , public loginService:LoginService,private router: Router,private spinner:NgxSpinnerService,public store:Store<LoginAppState>) {
     this.users=new AuthenticateUsers(loginService);
     this.formLogin= new FormGroup({
       formEmail:new FormControl(this.username,
@@ -81,8 +81,12 @@ export class LoginComponent implements OnInit {
     )
     if(_remember){
       this.store.dispatch(LoginAction({details:_details}));
-      
     }
+    else{
+      var emptyDetails= new LoginDetails();
+      this.store.dispatch(LoginAction({details:emptyDetails}));
+    }
+
     this.store.dispatch(SendLoginRequest({details:_details}));
     this.username=this.formLogin.controls.formEmail.value.toString();
     this.store.select(GetLoginstatus).subscribe(

@@ -11,6 +11,22 @@
         width:80%;
     }
 }
+@media(min-width:416px){
+    @media(max-width:768px){
+        .login-container{
+            margin-left: 30%;
+            width: 40%;
+        }
+    }
+}
+@media(min-width:769px){
+    @media(max-width:1025px){
+        .login-container{
+            margin-left: 30%;
+            width: 30%;
+        }
+    }
+}
 .login-container .login-form{
     padding: 2rem;
 }
@@ -102,7 +118,10 @@ button:disabled{
     text-align: center;
     margin: 0;
 }
+
 .remember{
     font-size: 16px;
     margin-top: 5px;
+    cursor: pointer;
+    width: fit-content;
 }

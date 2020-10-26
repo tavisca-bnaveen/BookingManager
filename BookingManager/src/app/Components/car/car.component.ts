@@ -52,8 +52,11 @@ export class CarComponent implements OnInit {
   getCarStatus(){
     this.tripservice.GetCarStatus(this.tripid,this.cardetails.id).subscribe(
       data => {
-        this.carStatus=data;
-        window.location.reload();
+        if(this.carStatus!=data){
+          this.carStatus=data;
+          window.location.reload();
+        }
+      
       }
     )
   }

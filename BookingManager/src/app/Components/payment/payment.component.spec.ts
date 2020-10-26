@@ -28,6 +28,11 @@ import { IndiviualStatus } from 'src/app/Models/status';
 import { FlightStatus } from 'src/app/Models/FlightStatus';
 import { OverallStatus } from 'src/app/Models/OverallStatus';
 import { FlightType } from 'src/app/Models/FlghtType';
+import { StoreModule } from '@ngrx/store';
+import { LoginReducer } from '../login/State/Login.Reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { LoginEffects } from '../login/State/Login.Effects';
 
 
 
@@ -51,7 +56,14 @@ describe('PaymentComponent', () => {
           AppRoutingModule,
           FormsModule,
           HttpClientModule,NgxSpinnerModule,
-          CommonModule,ReactiveFormsModule],
+          CommonModule,ReactiveFormsModule,StoreModule.forRoot({})
+          ,StoreModule.forFeature("Login",LoginReducer),
+          StoreDevtoolsModule.instrument({
+            name:"Booking Manager",
+            maxAge:40,
+            
+          }),
+          EffectsModule.forRoot([LoginEffects])],
         providers: [{provide: APP_BASE_HREF, useValue : '/' }]
       })
       .compileComponents();

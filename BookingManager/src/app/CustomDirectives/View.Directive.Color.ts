@@ -9,7 +9,7 @@ export class ViewColorDirective{
     @Input('BackColorHover')
     BackColorHover:string;
 
-    constructor(private element:ElementRef, private render : Renderer2){}
+    constructor(public element:ElementRef, public render : Renderer2){}
 
     @HostListener('mouseenter')
     mouseenter():void{
