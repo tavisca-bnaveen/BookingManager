@@ -20,6 +20,11 @@ import { ViewColorDirective } from 'src/app/CustomDirectives/View.Directive.Colo
 import { AddClassDirective } from 'src/app/CustomDirectives/AddClass.hover.Directive';
 import { LoginComponent } from '../login/login.component';
 import { HeaderComponent } from './header.component';
+import { StoreModule } from '@ngrx/store';
+import { LoginReducer } from '../login/State/Login.Reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { LoginEffects } from '../login/State/Login.Effects';
+import { EffectsModule } from '@ngrx/effects';
 describe('HeaderComponent', () => {
     let component: HeaderComponent;
     let fixture: ComponentFixture<HeaderComponent>;
@@ -40,7 +45,14 @@ describe('HeaderComponent', () => {
           AppRoutingModule,
           FormsModule,
           HttpClientModule,NgxSpinnerModule,
-          CommonModule,ReactiveFormsModule],
+          CommonModule,ReactiveFormsModule,StoreModule.forRoot({})
+          ,StoreModule.forFeature("Login",LoginReducer),
+          StoreDevtoolsModule.instrument({
+            name:"Booking Manager",
+            maxAge:40,
+            
+          }),
+          EffectsModule.forRoot([LoginEffects])],
         providers: [{provide: APP_BASE_HREF, useValue : '/' }]
       })
       .compileComponents();
@@ -73,5 +85,6 @@ describe('HeaderComponent', () => {
         expect(localStorage.getItem('Name')).toEqual("naveen");
         
     });
+    
 });
   

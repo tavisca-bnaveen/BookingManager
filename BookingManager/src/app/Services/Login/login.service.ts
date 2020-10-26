@@ -21,7 +21,7 @@ export class LoginService {
     let allUsers=new Array<Profile>();
     
     
-    return  this.http.get<Profile[]>('https://localhost:44389/api/Login/AllUsers').toPromise();
+    return  this.http.get<Profile[]>('https://localhost:44389/api/Login/AllUsers');
     
   }
 }

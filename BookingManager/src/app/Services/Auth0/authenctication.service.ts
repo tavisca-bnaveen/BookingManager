@@ -29,6 +29,7 @@ export class AuthencticationService {
     return Auth0GmailUrl;
   }
   
+  
   // https:// domainid/authorize?response_type=token&cliend_id=&connection=google-oauth2&redirect_uri=&scope=openid%20profile%20email
 
 }

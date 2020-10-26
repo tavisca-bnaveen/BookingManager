@@ -28,11 +28,20 @@ import { FlightComponent } from './flight.component';
 import { Flight } from 'src/app/Models/Flight';
 import { FlightType } from 'src/app/Models/FlghtType';
 import { FlightStatus } from 'src/app/Models/FlightStatus';
+import { StoreModule } from '@ngrx/store';
+import { LoginReducer } from '../login/State/Login.Reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { LoginEffects } from '../login/State/Login.Effects';
+import { EffectsModule } from '@ngrx/effects';
+import { TripserviceService } from 'src/app/Services/TripService/tripservice.service';
+import { inject } from '@angular/core/testing';
+import { of } from 'rxjs';
 
 describe('FlightComponent', () => {
     let component: FlightComponent;
     let fixture: ComponentFixture<FlightComponent>;
     let button:HTMLElement;
+    let _TripService;
   
     beforeEach(async(() => {
       TestBed.configureTestingModule({
@@ -49,13 +58,21 @@ describe('FlightComponent', () => {
           AppRoutingModule,
           FormsModule,
           HttpClientModule,NgxSpinnerModule,
-          CommonModule,ReactiveFormsModule],
+          CommonModule,ReactiveFormsModule,StoreModule.forRoot({})
+          ,StoreModule.forFeature("Login",LoginReducer),
+          StoreDevtoolsModule.instrument({
+            name:"Booking Manager",
+            maxAge:40,
+            
+          }),
+          EffectsModule.forRoot([LoginEffects])],
         providers: [{provide: APP_BASE_HREF, useValue : '/' }]
       })
       .compileComponents();
     }));
   
-    beforeEach(() => {
+    beforeEach(inject([TripserviceService], s => {
+      _TripService = s;
       localStorage.setItem('TokenManager','bnaveen@tavisca.com');
       fixture = TestBed.createComponent(FlightComponent);
       component = fixture.componentInstance;
@@ -76,7 +93,7 @@ describe('FlightComponent', () => {
       component.Flightdetails=flight;
       component.flightdetails=component.Flightdetails;
       fixture.detectChanges();
-    });
+    }));
     it('it should check flight status',()=>{
         component._Cancel="1";
         component.ngOnInit();
@@ -89,5 +106,24 @@ describe('FlightComponent', () => {
         component.cancel=false;
         component.CancelFlight();
         expect().nothing;
+    })
+    it('should test cancel Flight',()=>{
+      const response=true;
+      
+      component.TripId="12345";
+      component.flightdetails.pnr="QWERTY";
+      spyOn(_TripService,'CancelFlight').and.returnValue(of(response));
+      component.CancelFlight();
+      expect(component.cancel).toEqual(true);
+    })
+    it('should test get Flight status',()=>{
+      const response="Cancel";
+      
+      component.TripId="12345";
+      component.flightdetails.pnr="QWERTY";
+      component.flightStatus="Confirm";
+      spyOn(_TripService,'GetFlightStatus').and.returnValue(of(response));
+      component.getFlightStatus();
+      expect(component.flightStatus).toEqual("Cancel");
     })
 });

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef, Renderer2 } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Trip } from 'src/app/Models/Trip';
@@ -28,8 +28,8 @@ export class PostBookingComponent implements OnInit {
   @Output()
   UserData= new EventEmitter<Profile>();
   CurrentTrip:Trip;
-  constructor(public activatedRoute: ActivatedRoute,private router:Router,private auth0 : AuthencticationService,private tripservice:TripserviceService,private loginservice:LoginService,
-    private spinner:NgxSpinnerService) {
+  constructor(public activatedRoute: ActivatedRoute,public router:Router,private auth0 : AuthencticationService,private tripservice:TripserviceService,private loginservice:LoginService,public _element:ElementRef,public _render : Renderer2
+    ,private spinner:NgxSpinnerService) {
     this.AllUsers = new AuthenticateUsers(loginservice);
    }
 

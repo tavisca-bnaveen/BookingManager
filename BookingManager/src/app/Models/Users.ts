@@ -7,7 +7,17 @@ export class AuthenticateUsers{
     
     constructor(private loginservice:LoginService){
         this.Users=new Array<Profile>();
-        this.Users=  this.GetAllUsers();
+        this.loginservice.GetAllUsers()
+        .subscribe((
+            data => {
+            this.Users=data;
+            //console.log(JSON.stringify(this.Users));
+            //data.forEach(dat=>console.log(dat.password)
+            //)
+            }
+      
+        ));
+
     }
     AddUser(newuser:Profile){
         if(!this.CheckUser(newuser.email))
@@ -23,24 +33,14 @@ export class AuthenticateUsers{
     }
     CheckUser(email:string):boolean{
         this.Users.forEach(user => {
-            if(user.email == email){
+            if(user.email.toLowerCase() == email.toLowerCase()){
                 return true;
             }
         })
         return false;
     }
     GetAllUsers():Array<Profile>{
-        this.loginservice.GetAllUsers()
-        .then((
-            data => {
-            this.Users=data;
-            //console.log(JSON.stringify(this.Users));
-            //data.forEach(dat=>console.log(dat.password)
-            //)
-            }
-      
-        ));
-
+        
         return this.Users;
     }
 }
