@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,6 +41,8 @@ describe('AppComponent', () => {
           HttpClientModule,NgxSpinnerModule,
           CommonModule,ReactiveFormsModule],
         providers: [{provide: APP_BASE_HREF, useValue : '/' }]
+        ,
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
       })
       .compileComponents();
     }));

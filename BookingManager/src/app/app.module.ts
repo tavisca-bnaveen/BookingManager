@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Injector, NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +22,8 @@ import { LoginReducer } from './Components/login/State/Login.Reducer';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { LoginEffects } from './Components/login/State/Login.Effects';
+import { createCustomElement } from '@angular/elements';
+import './Litelements/Footer-LitElement';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +51,13 @@ import { LoginEffects } from './Components/login/State/Login.Effects';
     EffectsModule.forRoot([LoginEffects])
   ],
   providers: [AuthGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[HeaderComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(private injector: Injector) {
+    const customElement = createCustomElement(HeaderComponent, { injector });
+    customElements.define('app-header-element', customElement);
+  }
+}

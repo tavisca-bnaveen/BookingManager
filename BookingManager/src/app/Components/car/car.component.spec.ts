@@ -30,6 +30,7 @@ import { LoginEffects } from '../login/State/Login.Effects';
 import { EffectsModule } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { TripserviceService } from 'src/app/Services/TripService/tripservice.service';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('CarComponent', () => {
     let component: CarComponent;
@@ -60,7 +61,8 @@ describe('CarComponent', () => {
             
           }),
           EffectsModule.forRoot([LoginEffects])],
-        providers: [{provide: APP_BASE_HREF, useValue : '/' }]
+        providers: [{provide: APP_BASE_HREF, useValue : '/' }],
+        schemas:[CUSTOM_ELEMENTS_SCHEMA]
       })
       .compileComponents();
     }));
