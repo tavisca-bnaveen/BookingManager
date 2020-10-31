@@ -39,6 +39,7 @@ import { LoginEffects } from '../login/State/Login.Effects';
 import { TripserviceService } from 'src/app/Services/TripService/tripservice.service';
 import { Observable, of, throwError } from 'rxjs';
 import { inject } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 describe('ItineraryComponent', () => {
@@ -70,14 +71,15 @@ describe('ItineraryComponent', () => {
             
           }),
           EffectsModule.forRoot([LoginEffects])],
-        providers: [{provide: APP_BASE_HREF, useValue : '/' }]
+        providers: [{provide: APP_BASE_HREF, useValue : '/' }],
+        schemas:[CUSTOM_ELEMENTS_SCHEMA]
       })
       .compileComponents();
     }));
     beforeEach(inject([TripserviceService],s => {
         _tripService=s;
         localStorage.setItem('TokenManager','bnaveen@tavisca.com');
-        localStorage.setItem('TripId','12345');
+        
         fixture = TestBed.createComponent(ItineraryComponent);
         component = fixture.componentInstance;
         
@@ -131,6 +133,8 @@ describe('ItineraryComponent', () => {
         spyOn(_tripService,'GetAllTrips').and.returnValue(of(response));
         
         component.ngOnInit();
+        localStorage.setItem('TripId','12345');
+        component.ngOnInit();
         tick(1000);
         // jasmine.clock().tick(1000);
       expect(component.trip.flight.pnr).toEqual("PLMNJ");
@@ -138,7 +142,7 @@ describe('ItineraryComponent', () => {
     }));
     it('should test error while getting trips',()=>{
         component.NoTrip=false;
-        
+        component.ngOnInit();
         spyOn(_tripService,'GetAllTrips').and.returnValue((throwError({status: 404})));
         
         component.ngOnInit();

@@ -33,6 +33,7 @@ import { LoginReducer } from '../login/State/Login.Reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { LoginEffects } from '../login/State/Login.Effects';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 
@@ -64,7 +65,8 @@ describe('PaymentComponent', () => {
             
           }),
           EffectsModule.forRoot([LoginEffects])],
-        providers: [{provide: APP_BASE_HREF, useValue : '/' }]
+        providers: [{provide: APP_BASE_HREF, useValue : '/' }],
+        schemas:[CUSTOM_ELEMENTS_SCHEMA]
       })
       .compileComponents();
     }));
@@ -72,6 +74,8 @@ describe('PaymentComponent', () => {
         localStorage.setItem('TokenManager','bnaveen@tavisca.com');
         fixture = TestBed.createComponent(PaymentComponent);
         component = fixture.componentInstance;
+        
+        
         component._Cancel="1";
         let _car =new Car;
         let _flight =new Flight;
@@ -109,7 +113,7 @@ describe('PaymentComponent', () => {
         
         var _trip = new Trip;
         _trip.id = "12345";
-        _trip.flight=_flight;
+        _trip.flight=null;
         _trip.hotel=[_hotel];
         _trip.car=[_car];
         _trip.bookedDate='01-10-2020';
@@ -117,6 +121,11 @@ describe('PaymentComponent', () => {
 
         component.trip=_trip;
         component.Trip=component.trip;
+        component.ngOnInit();
+        _trip.flight=_flight;
+        component.trip=_trip;
+        component.Trip=component.trip;
+
         
         fixture.detectChanges();
       });
@@ -130,4 +139,12 @@ describe('PaymentComponent', () => {
       
         expect(component.TotalAmount).toEqual('1400');
     });
+    it('should test confirm case', () => {
+      component.Trip.flight.status=FlightStatus.Confirm;
+      component.Trip.car[0].status=IndiviualStatus.Confirm;
+      component.Trip.hotel[0].status=IndiviualStatus.Confirm;
+      component.ngOnInit();
+
+      expect(component.TotalAmount).toEqual('1400');
+  });
 });

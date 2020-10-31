@@ -27,7 +27,7 @@ import { LoginEffects } from './../login/State/Login.Effects';
 import { LoginService } from 'src/app/Services/Login/login.service';
 import { AuthenticateUsers } from 'src/app/Models/Users';
 import { Profile } from 'src/app/Models/UserProfile';
-import {  Injectable } from '@angular/core';
+import {  CUSTOM_ELEMENTS_SCHEMA, Injectable } from '@angular/core';
 import {  inject } from '@angular/core/testing';
 import { AuthGuard } from 'src/app/Guard/auth.guard';
 import {Directive, Input, ElementRef, Renderer2, HostListener } from '@angular/core';
@@ -70,7 +70,8 @@ describe('PostBookingComponent', () => {
             
           }),
           EffectsModule.forRoot([LoginEffects])],
-        providers: [LoginService,{provide: APP_BASE_HREF, useValue : '/' }]
+        providers: [LoginService,{provide: APP_BASE_HREF, useValue : '/' }],
+        schemas:[CUSTOM_ELEMENTS_SCHEMA]
       })
       .compileComponents();
     }));
@@ -95,9 +96,9 @@ describe('PostBookingComponent', () => {
         localStorage.setItem('TokenManager','fool');
         component.activatedRoute.snapshot.fragment=null;
         component.ngOnInit();
-        const element = fixture.nativeElement;
-      
-        expect(localStorage.getItem('TokenManager')).toEqual('fool');
+        localStorage.setItem('TokenManager','bnaveen');
+        component.ngOnInit();
+        expect(localStorage.getItem('TokenManager')).toEqual('bnaveen');
     });
     it('should check view itineray', () => {
         const element = fixture.nativeElement;
@@ -111,11 +112,16 @@ describe('PostBookingComponent', () => {
       const element = fixture.nativeElement;
       var profile=new Profile();
       profile.email="bnaveen@tavisca.com";
+      var profile2=new Profile();
+      profile2.email="vamsi@tavisca.com";
+      component.AllUsers.AddUser(profile2);
       component.AllUsers.AddUser(profile);
-      if(!component.AllUsers.CheckUser(profile.email)){
-        var _user=component.AllUsers.getUser(profile.email)
+      component.AllUsers.AddUser(profile);
+      if(!component.AllUsers.CheckUser("xxx@gmail.com")){
+        var _user=component.AllUsers.getUser("xxx@gmail.com");
+        _user=component.AllUsers.getUser(profile.email);
       }
-    expect(component.AllUsers.GetAllUsers().length).toEqual(1);
+    expect(component.AllUsers.GetAllUsers().length).toEqual(2);
   });
   it('should test unauthorized', () => {
     localStorage.clear();

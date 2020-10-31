@@ -33,6 +33,7 @@ import { LoginEffects } from '../login/State/Login.Effects';
 import { EffectsModule } from '@ngrx/effects';
 import { TripserviceService } from 'src/app/Services/TripService/tripservice.service';
 import { of } from 'rxjs';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('HotelComponent', () => {
     let component: HotelComponent;
@@ -62,7 +63,8 @@ describe('HotelComponent', () => {
             
           }),
           EffectsModule.forRoot([LoginEffects])],
-        providers: [{provide: APP_BASE_HREF, useValue : '/' }]
+        providers: [{provide: APP_BASE_HREF, useValue : '/' }],
+        schemas:[CUSTOM_ELEMENTS_SCHEMA]
       })
       .compileComponents();
     }));

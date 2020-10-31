@@ -37,6 +37,9 @@ export class ItineraryComponent implements OnInit {
                 }, 1000);
                 return;
               }
+              else{
+                
+              }
           });
       },
       error =>{

@@ -29,6 +29,7 @@ import { LoginService } from 'src/app/Services/Login/login.service';
 import { of, throwError } from 'rxjs';
 import { Profile } from 'src/app/Models/UserProfile';
 import { AuthenticateUsers } from 'src/app/Models/Users';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -58,7 +59,8 @@ describe('LoginComponent', () => {
           
         }),
         EffectsModule.forRoot([LoginEffects])],
-      providers: [{provide: APP_BASE_HREF, useValue : '/' }]
+      providers: [{provide: APP_BASE_HREF, useValue : '/' }],
+      schemas:[CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));
@@ -112,6 +114,10 @@ describe('LoginComponent', () => {
     let profiles= new Array<Profile>();
     var profile =new Profile();
     profile.email="bnaveen@tavisca.com";
+    
+    var profile2=new Profile();
+    profile2.email="vamsi@tavisca.com";
+    profiles.push(profile2);
     profiles.push(profile);
     spyOn(_loginService,'GetAllUsers').and.returnValue(of(profiles));
     var _authenticateUsersobject = new AuthenticateUsers(_loginService);

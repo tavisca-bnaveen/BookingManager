@@ -22,21 +22,36 @@ export class AuthenticateUsers{
     AddUser(newuser:Profile){
         if(!this.CheckUser(newuser.email))
             this.Users.push(newuser);
+        else{
+
+        }
     }
     getUser(email:string):Profile{
         this.Users.forEach(user => {
             if(user.email == email){
                 return user;
             }
+            else{
+
+            }
         })
         return null;
     }
     CheckUser(email:string):boolean{
+        let temp=0;
         this.Users.forEach(user => {
             if(user.email.toLowerCase() == email.toLowerCase()){
-                return true;
+                temp=1;
+                
+            }
+            else{
+
             }
         })
+        if(temp==1){
+            return true;
+        }
+        else
         return false;
     }
     GetAllUsers():Array<Profile>{
