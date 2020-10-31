@@ -32,6 +32,8 @@ export class CarComponent implements OnInit {
   constructor(private tripservice:TripserviceService) { }
   carStatus:string;
   _Confirm="Confirm";
+  ShowPopup=false;
+  faketitle="Do you want to cancel this car?";
   ngOnInit() {
     var _confirm=this._Confirm;
     if(this.cardetails.status.toString() === _confirm.toString() )
@@ -60,5 +62,16 @@ export class CarComponent implements OnInit {
       }
     )
   }
-
+  PopupOutput(event){
+    if(event){
+      this.CancelCar();
+      this.ShowPopup=false;
+    }
+    else{
+      this.ShowPopup=false;
+    }
+  }
+  openPopUp(){
+    this.ShowPopup=true;
+  }
 }
