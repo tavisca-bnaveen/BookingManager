@@ -42,6 +42,12 @@ export class PaymentComponent implements OnInit {
         this.CancelComponent=true;
         refund+=(Number(this.Trip.flight.cost)-Number(this.Trip.flight.discount));
       }
+      else{
+        
+      }
+    }
+    else{
+
     }
     this.Trip.hotel.forEach( hotel =>{
       amount+=(Number(hotel.cost)-Number(hotel.discount));
@@ -64,6 +70,9 @@ export class PaymentComponent implements OnInit {
         this.CancelComponent=true;
         this.TotalCancelledComponents+=1;
         //console.log("car cancel"+car.Id);
+      }
+      else{
+
       }
        
     }

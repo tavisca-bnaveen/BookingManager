@@ -25,6 +25,8 @@ import { LoginReducer } from '../login/State/Login.Reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { LoginEffects } from '../login/State/Login.Effects';
 import { EffectsModule } from '@ngrx/effects';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Profile } from 'src/app/Models/UserProfile';
 describe('HeaderComponent', () => {
     let component: HeaderComponent;
     let fixture: ComponentFixture<HeaderComponent>;
@@ -53,7 +55,8 @@ describe('HeaderComponent', () => {
             
           }),
           EffectsModule.forRoot([LoginEffects])],
-        providers: [{provide: APP_BASE_HREF, useValue : '/' }]
+        providers: [{provide: APP_BASE_HREF, useValue : '/' }],
+        schemas:[CUSTOM_ELEMENTS_SCHEMA]
       })
       .compileComponents();
     }));
@@ -81,7 +84,11 @@ describe('HeaderComponent', () => {
         localStorage.setItem('Name','naveen');
         component.ngOnInit();
         component.home();
-        var x = component.userdata;
+        var _profile=new Profile();
+        _profile.email="bnaveen@tavisca.com";
+        component.UserData=_profile;
+        component.userdata=_profile;
+        component.UserData = component.userdata;
         expect(localStorage.getItem('Name')).toEqual("naveen");
         
     });

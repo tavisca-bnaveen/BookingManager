@@ -53,11 +53,11 @@ export class FlightComponent implements OnInit {
   getFlightStatus(){
     this.tripservice.GetFlightStatus(this.TripId,this.flightdetails.pnr).subscribe(
       data =>{
-        if(this.flightStatus!=data){
+        
           this.flightStatus=data ;
           
           window.location.reload();
-        }
+        
         
 
       }

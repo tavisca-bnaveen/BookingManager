@@ -36,6 +36,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { TripserviceService } from 'src/app/Services/TripService/tripservice.service';
 import { inject } from '@angular/core/testing';
 import { of } from 'rxjs';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('FlightComponent', () => {
     let component: FlightComponent;
@@ -66,7 +67,8 @@ describe('FlightComponent', () => {
             
           }),
           EffectsModule.forRoot([LoginEffects])],
-        providers: [{provide: APP_BASE_HREF, useValue : '/' }]
+        providers: [{provide: APP_BASE_HREF, useValue : '/' }],
+        schemas:[CUSTOM_ELEMENTS_SCHEMA]
       })
       .compileComponents();
     }));
