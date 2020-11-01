@@ -96,6 +96,18 @@ describe('FlightComponent', () => {
       component.flightdetails=component.Flightdetails;
       fixture.detectChanges();
     }));
+    it('should close popup',()=>{
+      component.PopupOutput(false);
+      expect(component.ShowPopup).toBeFalsy();
+    });
+    it('should complete the popup',()=>{
+      component.PopupOutput(true);
+      expect(component.ShowPopup).toBeFalsy();
+    });
+    it('should open the popup',()=>{
+      component.openPopUp();
+      expect(component.ShowPopup).toBeTruthy();
+    });
     it('it should check flight status',()=>{
         component._Cancel="1";
         component.ngOnInit();

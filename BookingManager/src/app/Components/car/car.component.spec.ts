@@ -91,6 +91,18 @@ describe('CarComponent', () => {
       
       fixture.detectChanges();
     }));
+    it('should close popup',()=>{
+      component.PopupOutput(false);
+      expect(component.ShowPopup).toBeFalsy();
+    });
+    it('should complete the popup',()=>{
+      component.PopupOutput(true);
+      expect(component.ShowPopup).toBeFalsy();
+    });
+    it('should open the popup',()=>{
+      component.openPopUp();
+      expect(component.ShowPopup).toBeTruthy();
+    });
     it('should get the car status ',()=>{
         component._Confirm="0";
         component.ngOnInit();

@@ -19,7 +19,12 @@ describe('PopupComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should test not accept function', () => {
+    component.NotAccept();
+    expect(component).toBeTruthy();
+  });
+  it('should test accept function', () => {
+    component.Accept();
     expect(component).toBeTruthy();
   });
 });
