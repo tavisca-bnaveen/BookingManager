@@ -34,6 +34,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { LoginEffects } from '../login/State/Login.Effects';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ChangePasswordComponent } from '../change-password/change-password.component';
 
 
 
@@ -52,7 +53,7 @@ describe('PaymentComponent', () => {
           HotelComponent,
           CarComponent,
           ItineraryComponent,
-          PaymentComponent,ViewColorDirective,AddClassDirective],
+          PaymentComponent,ViewColorDirective,AddClassDirective, ChangePasswordComponent],
         imports:[BrowserModule,
           AppRoutingModule,
           FormsModule,

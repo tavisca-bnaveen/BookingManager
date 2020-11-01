@@ -32,7 +32,9 @@ export class HotelComponent implements OnInit {
 
   constructor(private tripservice:TripserviceService) { }
   hotelStatus:string;
-  _Confirm="Confirm"
+  _Confirm="Confirm";
+  ShowPopup=false;
+  faketitle="Do you want to cancel this Hotel?"
   ngOnInit() {
     var _confirm=this._Confirm;
     if(this.hoteldetails.status.toString() === _confirm.toString() )
@@ -60,6 +62,18 @@ export class HotelComponent implements OnInit {
         window.location.reload();
       }
     )
+  }
+  PopupOutput(event){
+    if(event){
+      this.CancelHotel();
+      this.ShowPopup=false;
+    }
+    else{
+      this.ShowPopup=false;
+    }
+  }
+  openPopUp(){
+    this.ShowPopup=true;
   }
 
 }

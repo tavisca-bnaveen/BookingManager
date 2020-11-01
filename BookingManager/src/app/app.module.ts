@@ -24,6 +24,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { LoginEffects } from './Components/login/State/Login.Effects';
 import { createCustomElement } from '@angular/elements';
 import './Litelements/Footer-LitElement';
+import { PopupModule } from './Components/popup/Popup.module';
+import { ChangePasswordComponent } from './Components/change-password/change-password.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +37,7 @@ import './Litelements/Footer-LitElement';
     HotelComponent,
     CarComponent,
     ItineraryComponent,
-    PaymentComponent,ViewColorDirective,AddClassDirective
+    PaymentComponent,ViewColorDirective,AddClassDirective, ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,7 @@ import './Litelements/Footer-LitElement';
       maxAge:40,
       
     }),
-    EffectsModule.forRoot([LoginEffects])
+    EffectsModule.forRoot([LoginEffects]),PopupModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent],

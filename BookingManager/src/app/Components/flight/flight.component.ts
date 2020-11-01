@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input,EventEmitter, OnInit } from '@angular/core';
 import { Flight } from 'src/app/Models/Flight';
 import { FlightStatus } from 'src/app/Models/FlightStatus';
 import { TripserviceService } from 'src/app/Services/TripService/tripservice.service';
@@ -30,6 +30,8 @@ export class FlightComponent implements OnInit {
   cancel:boolean
   flightStatus:string;
   _Cancel="Cancel";
+  faketitle="Do you to cancel the Flight?";
+  ShowPopup=false;
   ngOnInit() {
     this.cancel=false;
     var _cancel=this._Cancel;
@@ -63,5 +65,16 @@ export class FlightComponent implements OnInit {
       }
     )
   }
-  
+  PopupOutput(event){
+    if(event){
+      this.CancelFlight();
+      this.ShowPopup=false;
+    }
+    else{
+      this.ShowPopup=false;
+    }
+  }
+  openPopUp(){
+    this.ShowPopup=true;
+  }
 }

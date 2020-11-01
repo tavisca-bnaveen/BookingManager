@@ -27,6 +27,8 @@ import { LoginEffects } from '../login/State/Login.Effects';
 import { EffectsModule } from '@ngrx/effects';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Profile } from 'src/app/Models/UserProfile';
+import { ChangePasswordComponent } from '../change-password/change-password.component';
+import { LoggedinAction } from '../login/State/Login.Actions';
 describe('HeaderComponent', () => {
     let component: HeaderComponent;
     let fixture: ComponentFixture<HeaderComponent>;
@@ -42,7 +44,7 @@ describe('HeaderComponent', () => {
           HotelComponent,
           CarComponent,
           ItineraryComponent,
-          PaymentComponent,ViewColorDirective,AddClassDirective],
+          PaymentComponent,ViewColorDirective,AddClassDirective, ChangePasswordComponent],
         imports:[BrowserModule,
           AppRoutingModule,
           FormsModule,
@@ -79,6 +81,7 @@ describe('HeaderComponent', () => {
         expect(localStorage.getItem('TokenManager')).toEqual(null);
     });
     it('should navigate to home',()=>{
+        component.store.dispatch(LoggedinAction({response:true}));
         localStorage.setItem('TokenManager','fool');
         localStorage.setItem('Picture','xyz');
         localStorage.setItem('Name','naveen');
@@ -92,6 +95,21 @@ describe('HeaderComponent', () => {
         expect(localStorage.getItem('Name')).toEqual("naveen");
         
     });
-    
+    it('should close popup',()=>{
+      component.PopupOutput(false);
+      expect(component.ShowPopup).toBeFalsy();
+    });
+    it('should complete the popup',()=>{
+      component.PopupOutput(true);
+      expect(component.ShowPopup).toBeFalsy();
+    });
+    it('should open the popup',()=>{
+      component.openPopUp();
+      expect(component.ShowPopup).toBeTruthy();
+    });
+    it('should open change password page',()=>{
+      component.openChangePassword();
+      expect().nothing;
+    });
 });
   

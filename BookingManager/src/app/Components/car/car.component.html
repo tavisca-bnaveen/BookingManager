@@ -27,10 +27,10 @@
         <button [BackColorHover]="'#0A5783'" (click)="getCarStatus()">Check Status</button>
       </div>
       <div class="Cancel-Car" *ngIf="confirm">
-        <button [BackColorHover]="'#0A5783'" (click)="CancelCar()">Cancel Car</button>
+        <button [BackColorHover]="'#0A5783'" (click)="openPopUp()">Cancel Car</button>
       </div>
     </div>
   </div>
   </div>
-  
+  <app-popup [title]="faketitle" *ngIf="ShowPopup"  (PopupOutput)="PopupOutput($event)"></app-popup>
 </div>
