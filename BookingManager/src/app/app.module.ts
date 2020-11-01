@@ -25,6 +25,7 @@ import { LoginEffects } from './Components/login/State/Login.Effects';
 import { createCustomElement } from '@angular/elements';
 import './Litelements/Footer-LitElement';
 import { PopupModule } from './Components/popup/Popup.module';
+import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { PopupModule } from './Components/popup/Popup.module';
     HotelComponent,
     CarComponent,
     ItineraryComponent,
-    PaymentComponent,ViewColorDirective,AddClassDirective
+    PaymentComponent,ViewColorDirective,AddClassDirective, ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

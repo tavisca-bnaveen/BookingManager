@@ -24,4 +24,12 @@ export class LoginService {
     return  this.http.get<Profile[]>('https://localhost:44389/api/Login/AllUsers');
     
   }
+  ChangePassword(login:LoginDetails,newPassword:String){
+    
+    let newObject={
+      "Login":login,
+      "NewPassword":newPassword
+    }
+    return this.http.put<string>('https://localhost:44389/api/Login/ChangePassword',newObject,{responseType:'text' as 'json'})
+  }
 }

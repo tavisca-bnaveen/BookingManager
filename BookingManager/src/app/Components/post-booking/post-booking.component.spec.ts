@@ -41,6 +41,7 @@ import { IndiviualStatus } from 'src/app/Models/status';
 import { FlightType } from 'src/app/Models/FlghtType';
 import { FlightStatus } from 'src/app/Models/FlightStatus';
 import { OverallStatus } from 'src/app/Models/OverallStatus';
+import { ChangePasswordComponent } from '../change-password/change-password.component';
 describe('PostBookingComponent', () => {
     let component: PostBookingComponent;
     let fixture: ComponentFixture<PostBookingComponent>;
@@ -57,7 +58,7 @@ describe('PostBookingComponent', () => {
           HotelComponent,
           CarComponent,
           ItineraryComponent,
-          PaymentComponent,ViewColorDirective,AddClassDirective],
+          PaymentComponent,ViewColorDirective,AddClassDirective, ChangePasswordComponent],
         imports:[BrowserModule,
           AppRoutingModule,
           FormsModule,

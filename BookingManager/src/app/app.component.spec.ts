@@ -19,6 +19,7 @@ import { PaymentComponent } from './Components/payment/payment.component';
 import { ViewColorDirective } from './CustomDirectives/View.Directive.Color';
 import { AddClassDirective } from './CustomDirectives/AddClass.hover.Directive';
 import {NgxSpinnerModule} from 'ngx-spinner';
+import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 describe('AppComponent', () => {
     let component: AppComponent;
     let fixture: ComponentFixture<AppComponent>;
@@ -34,7 +35,7 @@ describe('AppComponent', () => {
           HotelComponent,
           CarComponent,
           ItineraryComponent,
-          PaymentComponent,ViewColorDirective,AddClassDirective],
+          PaymentComponent,ViewColorDirective,AddClassDirective, ChangePasswordComponent],
         imports:[BrowserModule,
           AppRoutingModule,
           FormsModule,

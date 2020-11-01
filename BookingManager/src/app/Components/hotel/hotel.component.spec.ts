@@ -34,6 +34,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { TripserviceService } from 'src/app/Services/TripService/tripservice.service';
 import { of } from 'rxjs';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ChangePasswordComponent } from '../change-password/change-password.component';
 
 describe('HotelComponent', () => {
     let component: HotelComponent;
@@ -50,7 +51,7 @@ describe('HotelComponent', () => {
           HotelComponent,
           CarComponent,
           ItineraryComponent,
-          PaymentComponent,ViewColorDirective,AddClassDirective],
+          PaymentComponent,ViewColorDirective,AddClassDirective, ChangePasswordComponent],
         imports:[BrowserModule,
           AppRoutingModule,
           FormsModule,
