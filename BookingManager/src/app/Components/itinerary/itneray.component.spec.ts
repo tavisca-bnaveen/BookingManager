@@ -40,6 +40,7 @@ import { TripserviceService } from 'src/app/Services/TripService/tripservice.ser
 import { Observable, of, throwError } from 'rxjs';
 import { inject } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ChangePasswordComponent } from '../change-password/change-password.component';
 
 
 describe('ItineraryComponent', () => {
@@ -58,7 +59,7 @@ describe('ItineraryComponent', () => {
           HotelComponent,
           CarComponent,
           ItineraryComponent,
-          PaymentComponent,ViewColorDirective,AddClassDirective],
+          PaymentComponent,ViewColorDirective,AddClassDirective, ChangePasswordComponent],
         imports:[BrowserModule,
           AppRoutingModule,
           FormsModule,

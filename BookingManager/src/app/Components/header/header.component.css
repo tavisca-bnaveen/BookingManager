@@ -46,3 +46,6 @@
 .Logout-dropdown .profile-dropdown{
     display: block;
 }
+.change-password{
+    cursor: pointer;
+}

@@ -30,6 +30,7 @@ import { of, throwError } from 'rxjs';
 import { Profile } from 'src/app/Models/UserProfile';
 import { AuthenticateUsers } from 'src/app/Models/Users';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ChangePasswordComponent } from '../change-password/change-password.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -46,7 +47,7 @@ describe('LoginComponent', () => {
         HotelComponent,
         CarComponent,
         ItineraryComponent,
-        PaymentComponent,ViewColorDirective,AddClassDirective],
+        PaymentComponent,ViewColorDirective,AddClassDirective, ChangePasswordComponent],
       imports:[BrowserModule,
         AppRoutingModule,
         FormsModule,

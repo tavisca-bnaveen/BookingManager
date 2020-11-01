@@ -12,9 +12,10 @@
       </div>
     </div>
     <div class="profile-dropdown">
-      <p (click)="Logout()" class="logout">Logout</p>
+      <p *ngIf="showChangePassword" (click)="openChangePassword()" class="change-password">Change Password</p>
+      <p (click)="openPopUp()" class="logout">Logout</p>
     </div>
      
   </div>
-
 </div>
+<app-popup [title]="faketitle" *ngIf="ShowPopup"  (PopupOutput)="PopupOutput($event)"></app-popup>

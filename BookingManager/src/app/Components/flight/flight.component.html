@@ -23,6 +23,7 @@
     <span class="dept">Depature <strong> {{flightdetails.deparatureTimes[i]}}</strong></span>
     <span>Arrival <strong>{{flightdetails.arrivalTimes[i]}}</strong></span>
   </div>
+  
   <div>
     <span class="airlines"><strong>{{flightdetails.airlineDetails[i]}}</strong></span>
   </div>
@@ -36,8 +37,9 @@
       <button [BackColorHover]="'#0A5783'" (click)="getFlightStatus()">Check Status</button>
     </div>
     <div class="Cancel-Flight" *ngIf="!cancel">
-      <button [BackColorHover]="'#0A5783'" (click)="CancelFlight()">Cancel Flight</button>
+      <button [BackColorHover]="'#0A5783'" (click)="openPopUp()">Cancel Flight</button>
     </div>
   </div>
 </div>
+<app-popup [title]="faketitle" *ngIf="ShowPopup"  (PopupOutput)="PopupOutput($event)"></app-popup>
 </div>

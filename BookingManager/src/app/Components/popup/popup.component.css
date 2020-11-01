@@ -1,0 +1,67 @@
+.Popup{
+    background:rgba(0,0,0,.1);
+    height:100%;
+    width: 100%;
+    position:fixed;
+    
+    z-index:10000;
+    top: 0;
+}
+.Popup .PopupContainer {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    height: auto;
+    max-width: 70%;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 400px;
+    position: relative;
+    border-radius: 5px;
+    padding: 1rem;
+    top: 320px;
+    display: flow-root;
+    margin: auto;
+}
+.popup-header{
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+button{
+    background-color: white;
+    
+    padding: 6px 25px;
+    cursor: pointer;
+    
+    border-radius: 3px;
+    
+}
+button.yes{    
+    color: #128820;
+    border: 1px solid #128820;
+
+}
+button.yes:hover{    
+    background-color: #128820;
+    color: white;
+    border: 1px solid #128820;
+
+}
+button.no{    
+    color: red;
+    border: 1px solid red;
+
+}
+button.no:hover{    
+    color: white;
+    background-color: red;
+    border: 1px solid red;
+
+}
+.popupbuttons{
+    display: flex;
+}
+.notacceptbutton{
+    width: 50%;
+    margin-left: 60px;
+}
