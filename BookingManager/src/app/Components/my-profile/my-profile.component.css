@@ -1,0 +1,95 @@
+.MyProfile-card{
+    
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 0.4px 0 rgba(0,0,0,0.1);
+    border: none;
+    border-radius: 0 0 5px 5px;
+    width: 40%;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+    margin-top:2%;
+}
+@media(max-width:415px){
+    .MyProfile-card{
+        width: 90%;
+    }
+    .normal{
+        width: 160px !important;
+    }
+    .hobbies{
+        width: 250px !important;
+    }
+}
+@media(min-width:416px){
+    @media(max-width:1260px){
+        .MyProfile-card{
+            width: 60%;
+        }
+    }
+}
+.normal{
+    height: 20px;
+    width: 200px;
+    border-radius: 3px;
+    border: 1px solid;
+}
+input:disabled{
+    font-weight: 600;
+}
+.profile-header p{
+    font-size: 20px;
+    margin-top: 0;
+    text-align: center;
+    font-weight: 600;
+}
+.gender-radio{
+    display: flex;
+}
+.row{
+    margin-top: 1rem;
+}
+.row label{
+    font-weight: 600;
+}
+.flex{
+    display:flex
+}
+.half{
+    width:50%;
+}
+.age{
+    margin-right: 12px;
+}
+.hobbies{
+    width: 300px;
+}
+.update-button{
+    border: 1px solid #0D74AF;
+    color: #0D74AF;
+    background-color: white;
+    padding: 5px 20px;
+    border-radius: 3px;
+    margin: 0 auto;
+}
+.margin-top-1{
+    margin-top:1rem;
+}
+.edit-icon{
+    float: right;
+    cursor: pointer;
+}
+.profile-error{
+    color: orangered;
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 10px !important;
+    font-size: 16px !important;
+}
+.profile-success{
+    color: green;
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 16px !important;
+    margin-top: 10px !important;
+} 

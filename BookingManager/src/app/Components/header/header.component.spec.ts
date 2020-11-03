@@ -29,6 +29,9 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Profile } from 'src/app/Models/UserProfile';
 import { ChangePasswordComponent } from '../change-password/change-password.component';
 import { LoggedinAction } from '../login/State/Login.Actions';
+import { MyFooterComponent } from 'src/app/Litelements/Footer-Element';
+import { MyProfileComponent } from '../my-profile/my-profile.component';
+import { ProfilePageComponent } from '../profile-page/profile-page.component';
 describe('HeaderComponent', () => {
     let component: HeaderComponent;
     let fixture: ComponentFixture<HeaderComponent>;
@@ -44,7 +47,7 @@ describe('HeaderComponent', () => {
           HotelComponent,
           CarComponent,
           ItineraryComponent,
-          PaymentComponent,ViewColorDirective,AddClassDirective, ChangePasswordComponent],
+          PaymentComponent,ViewColorDirective,AddClassDirective, ChangePasswordComponent,MyFooterComponent, MyProfileComponent, ProfilePageComponent],
         imports:[BrowserModule,
           AppRoutingModule,
           FormsModule,
@@ -65,6 +68,7 @@ describe('HeaderComponent', () => {
   
     beforeEach(() => {
       localStorage.setItem('TokenManager','fool');
+      localStorage.setItem('IsLoginThroughApi',"true");
       fixture = TestBed.createComponent(HeaderComponent);
       component = fixture.componentInstance;
       component.ngOnInit();

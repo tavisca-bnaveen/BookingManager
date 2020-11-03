@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Profile } from 'src/app/Models/UserProfile';
+import { ProfileService } from 'src/app/Services/Profile/Profile.Service';
 import { LoggedOutAction } from '../login/State/Login.Actions';
 import { LoginAppState } from '../login/State/Login.Reducer';
 import { GetLoginstatus } from '../login/State/Login.Selector';
@@ -26,10 +27,14 @@ export class HeaderComponent implements OnInit {
   faketitle="Do you to Logout?";
   ShowPopup=false;
   showChangePassword=false;
-  
+  loginthroughApi=false;
   ngOnInit() {
+    if(localStorage.getItem('IsLoginThroughApi')){
+      this.loginthroughApi=true
+    }
     //console.log("header"+ JSON.stringify(this.UserData));
     this.profilepicture=localStorage.getItem('picture');
+
     this.Name=localStorage.getItem('Name');
     // console.log(this.profilepicture)
     this.store.select(GetLoginstatus).subscribe(
@@ -63,6 +68,6 @@ export class HeaderComponent implements OnInit {
     this.ShowPopup=true;
   }
   openChangePassword(){
-    this.router.navigateByUrl('Password');
+    this.router.navigateByUrl('MyProfile');
   }
 }

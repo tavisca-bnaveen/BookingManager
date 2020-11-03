@@ -42,6 +42,9 @@
     .trip-details-status .trip-overall-status{
         width: inherit;
     }
+    .trip-details-status .trip-details{
+        font-size: 15px;
+    }
 
 }
 .trip-overall-status span{
