@@ -93,6 +93,7 @@ export class LoginComponent implements OnInit {
       data => {
           
           if(data){
+            localStorage.setItem('IsLoginThroughApi',"true");
             localStorage.setItem('TokenManager',this.formLogin.controls.formEmail.value);
             localStorage.setItem('Name',this.username.substr(0,this.username.indexOf('@')));
             localStorage.setItem('picture','https://www.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png')

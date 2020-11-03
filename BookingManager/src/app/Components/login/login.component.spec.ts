@@ -31,6 +31,9 @@ import { Profile } from 'src/app/Models/UserProfile';
 import { AuthenticateUsers } from 'src/app/Models/Users';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ChangePasswordComponent } from '../change-password/change-password.component';
+import { MyFooterComponent } from 'src/app/Litelements/Footer-Element';
+import { MyProfileComponent } from '../my-profile/my-profile.component';
+import { ProfilePageComponent } from '../profile-page/profile-page.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -47,7 +50,7 @@ describe('LoginComponent', () => {
         HotelComponent,
         CarComponent,
         ItineraryComponent,
-        PaymentComponent,ViewColorDirective,AddClassDirective, ChangePasswordComponent],
+        PaymentComponent,ViewColorDirective,AddClassDirective, ChangePasswordComponent,MyFooterComponent, MyProfileComponent, ProfilePageComponent],
       imports:[BrowserModule,
         AppRoutingModule,
         FormsModule,
