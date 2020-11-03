@@ -20,6 +20,9 @@ import { ViewColorDirective } from './CustomDirectives/View.Directive.Color';
 import { AddClassDirective } from './CustomDirectives/AddClass.hover.Directive';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
+import { MyProfileComponent } from './Components/my-profile/my-profile.component';
+import { ProfilePageComponent } from './Components/profile-page/profile-page.component';
+import { MyFooterComponent } from './Litelements/Footer-Element';
 describe('AppComponent', () => {
     let component: AppComponent;
     let fixture: ComponentFixture<AppComponent>;
@@ -35,7 +38,7 @@ describe('AppComponent', () => {
           HotelComponent,
           CarComponent,
           ItineraryComponent,
-          PaymentComponent,ViewColorDirective,AddClassDirective, ChangePasswordComponent],
+          PaymentComponent,ViewColorDirective,AddClassDirective, ChangePasswordComponent,MyFooterComponent, MyProfileComponent, ProfilePageComponent],
         imports:[BrowserModule,
           AppRoutingModule,
           FormsModule,

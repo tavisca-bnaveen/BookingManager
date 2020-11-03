@@ -26,6 +26,9 @@ import { createCustomElement } from '@angular/elements';
 import './Litelements/Footer-LitElement';
 import { PopupModule } from './Components/popup/Popup.module';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
+import { MyFooterComponent } from './Litelements/Footer-Element';
+import { MyProfileComponent } from './Components/my-profile/my-profile.component';
+import { ProfilePageComponent } from './Components/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,7 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
     HotelComponent,
     CarComponent,
     ItineraryComponent,
-    PaymentComponent,ViewColorDirective,AddClassDirective, ChangePasswordComponent
+    PaymentComponent,ViewColorDirective,AddClassDirective, ChangePasswordComponent,MyFooterComponent, MyProfileComponent, ProfilePageComponent
   ],
   imports: [
     BrowserModule,
@@ -55,12 +58,15 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent],
-  entryComponents:[HeaderComponent],
+  entryComponents:[HeaderComponent,MyFooterComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { 
   constructor(private injector: Injector) {
-    const customElement = createCustomElement(HeaderComponent, { injector });
+    const customElement = createCustomElement(HeaderComponent, {injector });
     customElements.define('app-header-element', customElement);
+    const customFooterElement =createCustomElement(MyFooterComponent,{injector});
+    customElements.define('app-footer-element', customFooterElement);
+    
   }
 }
