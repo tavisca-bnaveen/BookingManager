@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, inject, TestBed } from '@angular/core/testing';
 import { FormGroup, FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { Router } from '@angular/router';
@@ -25,18 +25,24 @@ import { LoginReducer } from '../login/State/Login.Reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { LoginEffects } from '../login/State/Login.Effects';
 import { EffectsModule } from '@ngrx/effects';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, EventEmitter } from '@angular/core';
 import { Profile } from 'src/app/Models/UserProfile';
 import { ChangePasswordComponent } from '../change-password/change-password.component';
 import { LoggedinAction } from '../login/State/Login.Actions';
 import { MyFooterComponent } from 'src/app/Litelements/Footer-Element';
 import { MyProfileComponent } from '../my-profile/my-profile.component';
 import { ProfilePageComponent } from '../profile-page/profile-page.component';
+import { ProfileService } from 'src/app/Services/Profile/Profile.Service';
+import {  observable, Observable, of } from 'rxjs';
+import { TripProfile } from 'src/app/Models/Profile';
+import { NameService } from 'src/app/Services/Communication/Name.service';
+
 describe('HeaderComponent', () => {
     let component: HeaderComponent;
     let fixture: ComponentFixture<HeaderComponent>;
     let button:HTMLElement;
-  
+    let _profileService;
+    let _nameService;
     beforeEach(async(() => {
       TestBed.configureTestingModule({
         declarations: [ AppComponent,
@@ -66,14 +72,22 @@ describe('HeaderComponent', () => {
       .compileComponents();
     }));
   
-    beforeEach(() => {
+    beforeEach(inject([ProfileService,NameService],(ps,ns) => {
+      _profileService=ps;
+      _nameService=ns;
+      let naveen="naveen"
+      ns.NotifyName=of(naveen);
       localStorage.setItem('TokenManager','fool');
       localStorage.setItem('IsLoginThroughApi',"true");
       fixture = TestBed.createComponent(HeaderComponent);
       component = fixture.componentInstance;
+      var profile =new TripProfile();
+      profile.name="naveen";
+      spyOn(_profileService,'GetProfileById').and.returnValue(of(profile));
+      
       component.ngOnInit();
       fixture.detectChanges();
-    });
+    }));
     it('should logout the session',()=>{
         localStorage.setItem('TokenManager','fool');
         localStorage.setItem('Picture','xyz');

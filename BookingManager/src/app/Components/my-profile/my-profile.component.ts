@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Gender } from 'src/app/Models/Gender';
 import { TripProfile } from 'src/app/Models/Profile';
+import { NameService } from 'src/app/Services/Communication/Name.service';
 import { ProfileService } from 'src/app/Services/Profile/Profile.Service';
 
 @Component({
@@ -10,7 +11,7 @@ import { ProfileService } from 'src/app/Services/Profile/Profile.Service';
 })
 export class MyProfileComponent implements OnInit {
 
-  constructor(public profileService:ProfileService) { }
+  constructor(public profileService:ProfileService,private nameService:NameService) { }
   _profile:TripProfile;
   dataArrived=false;
   _hobbies:string;
@@ -39,6 +40,7 @@ export class MyProfileComponent implements OnInit {
         this._Age=Number(this._profile.age);
         this._Name=this._profile.name;
         localStorage.setItem('Name',this._Name);
+        this.nameService.changeName(this._Name);
         
         if(this._profile.gender==Gender.male){
           this.Male=true;
@@ -74,7 +76,7 @@ export class MyProfileComponent implements OnInit {
               }
             }
             else{
-              
+
             }
            
           }
