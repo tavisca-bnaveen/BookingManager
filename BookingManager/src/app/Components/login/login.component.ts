@@ -96,7 +96,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('IsLoginThroughApi',"true");
             localStorage.setItem('TokenManager',this.formLogin.controls.formEmail.value);
             localStorage.setItem('Name',this.username.substr(0,this.username.indexOf('@')));
-            localStorage.setItem('picture','https://www.iconfinder.com/data/icons/mix-color-4/502/Untitled-1-512.png')
+            localStorage.setItem('picture','https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png')
             this.router.navigateByUrl('PostBooking');
           }
           else{

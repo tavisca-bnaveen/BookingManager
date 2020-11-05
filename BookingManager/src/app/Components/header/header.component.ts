@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
   get userdata(): Profile {
     return this.UserData;
   }
-  faketitle="Do you to Logout?";
+  faketitle="Do you want to Logout?";
   ShowPopup=false;
   showChangePassword=false;
   loginthroughApi=false;
