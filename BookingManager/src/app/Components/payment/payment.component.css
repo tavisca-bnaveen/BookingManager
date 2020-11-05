@@ -3,7 +3,7 @@
     background-color: white;
     padding: 20px;
     box-shadow: 0 2px 0.4px 0 rgba(0,0,0,0.1);
-    border: 2px solid cornflowerblue;
+    border: 2px solid #bfefff;
     border-radius: 0 0 5px 5px;
     width: 50%;
     margin: 0 auto;
@@ -14,10 +14,10 @@
     padding: 8px 20px;
     width: 50%;
     margin: auto;
-    background: cornflowerblue;
-    color: white;
+    background: #bfefff;
+    color: black;
     border-radius: 2px 2px 0 0;
-    border: 2px solid cornflowerblue;
+    border: 2px solid #bfefff;
     margin-top: 15px;
 }
 @media(max-width:768px){
