@@ -1,17 +1,28 @@
 .MyProfile-card{
     
     background-color: white;
-    padding: 20px;
+    padding: 10px 20px;
     box-shadow: 0 2px 0.4px 0 rgba(0,0,0,0.1);
-    border: none;
+    border: 2px solid #bfefff;
     border-radius: 0 0 5px 5px;
     width: 40%;
     margin: 0 auto;
     margin-bottom: 5rem;
+    margin-top:0%;
+}
+.profile-header{
+    background-color:#bfefff;
+    padding:10px  20px;
+    
+    border: 2px solid #bfefff;
+    border-radius: 5px 5px 0 0;
+    width: 40%;
+    margin: 0 auto;
+    
     margin-top:2%;
 }
 @media(max-width:415px){
-    .MyProfile-card{
+    .MyProfile-card,.profile-header{
         width: 90%;
     }
     .normal{
@@ -23,7 +34,7 @@
 }
 @media(min-width:416px){
     @media(max-width:1260px){
-        .MyProfile-card{
+        .MyProfile-card,.profile-header{
             width: 60%;
         }
     }
@@ -39,7 +50,7 @@ input:disabled{
 }
 .profile-header p{
     font-size: 20px;
-    margin-top: 0;
+    margin: 0;
     text-align: center;
     font-weight: 600;
 }

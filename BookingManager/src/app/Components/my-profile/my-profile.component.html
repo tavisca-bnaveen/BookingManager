@@ -1,9 +1,9 @@
+<div class="profile-header">
+  <p *ngIf="!Edit">Profile <span><i class="fa fa-pencil-square-o edit-icon" aria-hidden="true" (click)="EditProfile()"></i></span></p>
+  <p *ngIf="Edit">Update Profile</p>
+</div>
+
 <div class="MyProfile-card">
-  <div class="profile-header">
-    <p *ngIf="!Edit">Profile <span><i class="fa fa-pencil-square-o edit-icon" aria-hidden="true" (click)="EditProfile()"></i></span></p>
-    <p *ngIf="Edit">Update Profile </p>
-    
-  <div >
    <div class="row flex">
     <span class="half">
       <label> Name </label>

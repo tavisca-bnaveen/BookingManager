@@ -4,4 +4,5 @@ export class Profile{
     picture:string;
     email:string;
     password:string;
+    gender:string;
 }

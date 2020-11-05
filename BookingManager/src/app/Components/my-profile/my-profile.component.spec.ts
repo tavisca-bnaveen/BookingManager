@@ -72,6 +72,9 @@ describe('MyProfileComponent', () => {
     _ProfileService=s
     fixture = TestBed.createComponent(MyProfileComponent);
     component = fixture.componentInstance;
+    localStorage.setItem('gender','male');
+    localStorage.setItem('Name','Naveen');
+    localStorage.setItem('TokenManager','bnaveen025@gmail.com')
     fixture.detectChanges();
     _profile.age=23
     _profile.name="Naveen";
@@ -93,6 +96,7 @@ describe('MyProfileComponent', () => {
   it('Should test not a number',()=>{
     component.profileService.GetProfileById(_profile.email);
     component.profileService.UpdateProfileById(_profile);
+    component.profileService.CreateProfile(_profile);
     component._Age=Number('23s');
     component.updateProfile();
     expect(component.Error).toBeTruthy();
@@ -100,6 +104,7 @@ describe('MyProfileComponent', () => {
   it('should  test update error', () => {
     spyOn(_ProfileService,'GetProfileById').and.returnValue(of(_profile));
     spyOn(_ProfileService,'UpdateProfileById').and.returnValue(of(false));
+    spyOn(_ProfileService,'CreateProfile').and.returnValue(of(true));
     
     component.ngOnInit();
     component.updateProfile();
@@ -107,8 +112,9 @@ describe('MyProfileComponent', () => {
   });
   it('should  test http error for update', () => {
     _profile.gender=Gender.female;
-    spyOn(_ProfileService,'GetProfileById').and.returnValue(of(_profile));
+    spyOn(_ProfileService,'GetProfileById').and.returnValue(throwError({status:400}));
     spyOn(_ProfileService,'UpdateProfileById').and.returnValue(throwError({status:400}));
+    spyOn(_ProfileService,'CreateProfile').and.returnValue(of(true));
     
     component.ngOnInit();
     component.updateProfile();
@@ -126,6 +132,36 @@ describe('MyProfileComponent', () => {
     component.ngOnInit();
     component.EditProfile();
     expect(component.Edit).toBeTruthy();
+  });
+  it('should  test http error for create', () => {
+    _profile.gender=Gender.female;
+    spyOn(_ProfileService,'GetProfileById').and.returnValue(throwError({status:400}));
+    spyOn(_ProfileService,'UpdateProfileById').and.returnValue(throwError({status:400}));
+    spyOn(_ProfileService,'CreateProfile').and.returnValue(of(true));
+    localStorage.setItem('gender',"female")
+    component.ngOnInit();
+    component.updateProfile();
+    expect(component.Error).toBeTruthy();
+  });
+  it('should  test  for create error', () => {
+    _profile.gender=Gender.female;
+    spyOn(_ProfileService,'GetProfileById').and.returnValue(throwError({status:400}));
+    
+    spyOn(_ProfileService,'CreateProfile').and.returnValue(of(false));
+    localStorage.setItem('gender',"female")
+    component.ngOnInit();
+    
+    expect(component.Male).toBeFalsy();
+  });
+  it('should  test http error for update profile', () => {
+    _profile.gender=Gender.female;
+    spyOn(_ProfileService,'GetProfileById').and.returnValue(of(_profile));
+    spyOn(_ProfileService,'UpdateProfileById').and.returnValue(throwError({status:400}));
+    
+    localStorage.setItem('gender',"female")
+    component.ngOnInit();
+    component.updateProfile();
+    expect(component.Error).toBeTruthy();
   });
 });
 
