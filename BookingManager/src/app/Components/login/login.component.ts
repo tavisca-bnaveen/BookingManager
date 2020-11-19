@@ -53,10 +53,11 @@ export class LoginComponent implements OnInit {
     this.formLogin.setValue({'formEmail':"","formPassword":""});
     this.store.select(GetLoginState).subscribe(
       values => {
-        if (values) {
-          if(values.Remember)
+          if(values && values.Remember)
             this.formLogin.setValue({'formEmail':values.Email,"formPassword":values.Password})
-        }
+          else{
+
+          }
       });
       this.store.select(GetRemembervalue).subscribe(
         value => this.Checked=value

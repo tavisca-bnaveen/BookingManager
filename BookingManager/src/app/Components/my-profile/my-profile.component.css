@@ -3,7 +3,7 @@
     background-color: white;
     padding: 10px 20px;
     box-shadow: 0 2px 0.4px 0 rgba(0,0,0,0.1);
-    border: 2px solid #bfefff;
+    border: 4px solid #bfefff;
     border-radius: 0 0 5px 5px;
     width: 40%;
     margin: 0 auto;
@@ -14,7 +14,7 @@
     background-color:#bfefff;
     padding:10px  20px;
     
-    border: 2px solid #bfefff;
+    border: 4px solid #bfefff;
     border-radius: 5px 5px 0 0;
     width: 40%;
     margin: 0 auto;
