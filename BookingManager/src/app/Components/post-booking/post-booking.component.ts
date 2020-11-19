@@ -47,10 +47,12 @@ export class PostBookingComponent implements OnInit {
     this.auth0.GetUserInfo(this.ParamsValues.get('access_token'),this.ParamsValues.get('token_type')).subscribe(
       data => {
         this.CurrentUser=data;
+        console.log(data);
         this.UserData.emit(this.CurrentUser);
         localStorage.setItem('TokenManager',this.CurrentUser.email);
         localStorage.setItem('Name',this.CurrentUser.name);
         localStorage.setItem('picture',this.CurrentUser.picture);
+        localStorage.setItem('gender',this.CurrentUser.gender)
         this.header=true
         this.AllUsers.AddUser(this.CurrentUser);
       },

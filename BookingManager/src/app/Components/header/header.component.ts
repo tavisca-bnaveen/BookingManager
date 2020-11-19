@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Profile } from 'src/app/Models/UserProfile';
+import { NameService } from 'src/app/Services/Communication/Name.service';
 import { ProfileService } from 'src/app/Services/Profile/Profile.Service';
 import { LoggedOutAction } from '../login/State/Login.Actions';
 import { LoginAppState } from '../login/State/Login.Reducer';
@@ -14,7 +15,7 @@ import { GetLoginstatus } from '../login/State/Login.Selector';
 })
 export class HeaderComponent implements OnInit {
   Name:string;
-  constructor(private router: Router, public store:Store<LoginAppState>) { }
+  constructor(private router: Router, public store:Store<LoginAppState>,public nameService:NameService, private profileService:ProfileService) { }
   UserData:Profile
   profilepicture:string
   @Input()
@@ -24,7 +25,7 @@ export class HeaderComponent implements OnInit {
   get userdata(): Profile {
     return this.UserData;
   }
-  faketitle="Do you to Logout?";
+  faketitle="Do you want to Logout?";
   ShowPopup=false;
   showChangePassword=false;
   loginthroughApi=false;
@@ -33,9 +34,23 @@ export class HeaderComponent implements OnInit {
       this.loginthroughApi=true
     }
     //console.log("header"+ JSON.stringify(this.UserData));
-    this.profilepicture=localStorage.getItem('picture');
 
+    this.profilepicture=localStorage.getItem('picture');
+    this.profileService.GetProfileById(localStorage.getItem('TokenManager')).subscribe(
+      data =>{
+        this.Name=data.name;
+        localStorage.setItem('Name',this.Name);
+
+      }
+    )
+      this.nameService.NotifyName.subscribe(
+        data => {
+          this.Name=data
+          localStorage.setItem('Name',this.Name);
+        }
+      )
     this.Name=localStorage.getItem('Name');
+
     // console.log(this.profilepicture)
     this.store.select(GetLoginstatus).subscribe(
       data => {

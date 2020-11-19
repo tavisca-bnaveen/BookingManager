@@ -13,13 +13,13 @@
     width: 20%;
 
 }
-.trips-header{
+/* .trips-header{
     margin-top: 1rem;
-}
+} */
 .trips-table{
     
-    width: 80%;
-    margin-left: 10%;
+    width: 90%;
+    margin-left: 5%;
 }
 .trips-table .trips-header ,.trips-table .trips-row{
     padding: 10px;
@@ -31,15 +31,27 @@
 }
 .trips-view{
     background-color: white;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0 2px 0.4px 0 rgba(0,0,0,0.1);
-    border:none;
-    border-radius: 5px;
+    border:4px solid #bfefff;
+    border-radius:0 0 5px 5px;
+    width: 80%;
+    margin: 0rem auto 0;
+}
+.My-trips-header{
+    background-color: #bfefff;
+    padding: 15px;
+    box-shadow: 0 2px 0.4px 0 rgba(0,0,0,0.1);
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
     width: 80%;
     margin: 5rem auto 0;
+    border:4px solid #bfefff;
 }
 @media(max-width:768px){
-    .trips-view{
+    .trips-view,.My-trips-header{
        width: 95%;
        padding: 10px;
     }
@@ -102,4 +114,13 @@
     text-align: center;
     font-size: 22px;
     font-weight: 600;
+}
+.Status .PartialCancelled{
+    color: orangered;
+}
+.Status .Confirm{
+    color: green;
+}
+.Status .Cancel{
+    color: red;
 }

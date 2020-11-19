@@ -16,3 +16,6 @@ button:hover{
 button:disabled{
     cursor: not-allowed !important;
 }
+input:disabled{
+    cursor: not-allowed ;
+}

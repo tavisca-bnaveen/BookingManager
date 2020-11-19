@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Gender } from 'src/app/Models/Gender';
 import { TripProfile } from 'src/app/Models/Profile';
+import { NameService } from 'src/app/Services/Communication/Name.service';
 import { ProfileService } from 'src/app/Services/Profile/Profile.Service';
 
 @Component({
@@ -10,7 +11,7 @@ import { ProfileService } from 'src/app/Services/Profile/Profile.Service';
 })
 export class MyProfileComponent implements OnInit {
 
-  constructor(public profileService:ProfileService) { }
+  constructor(public profileService:ProfileService,private nameService:NameService) { }
   _profile:TripProfile;
   dataArrived=false;
   _hobbies:string;
@@ -20,26 +21,69 @@ export class MyProfileComponent implements OnInit {
   Error:boolean;
   ErrorText:string;
   Male:boolean;
-  success=false
+  success=false;
+  
   ngOnInit() {
     this._profile=new TripProfile();
     this.Male=false;
     this.Edit=false;
     this.Error=false;
     this._hobbies=""
+    
+    
     this.profileService.GetProfileById(localStorage.getItem('TokenManager')).subscribe(
       data => {
+
         this.dataArrived=true;
         this._profile=data;
         this._hobbies=this._profile.hobbies;
         this._Age=Number(this._profile.age);
         this._Name=this._profile.name;
         localStorage.setItem('Name',this._Name);
-        //console.log(this._profile.gender,Gender.male)
+        this.nameService.changeName(this._Name);
+        
         if(this._profile.gender==Gender.male){
           this.Male=true;
         }
+        else{
+          this.Male=false
+        }
+      },
+      error =>{
+        this._profile.email=localStorage.getItem('TokenManager');
+        this._profile.name=localStorage.getItem('Name');
+        if(localStorage.getItem('gender')=="female"){
+          this._profile.gender=Gender.female
+        }
+        else{
+          this._profile.gender=Gender.male
+        }
+        this._profile.age=0;
+        this._profile.hobbies=""
+        var DateObj= new Date();
+        this._profile.joined= ('0' + DateObj.getDate()).slice(-2) + '-' + ('0' + (DateObj.getMonth() + 1)).slice(-2) + '-' + DateObj.getFullYear();
+        this.profileService.CreateProfile(this._profile).subscribe(
+          data => {
+            if(data){
+              this.dataArrived=true;
+              this._hobbies=this._profile.hobbies;
+              this._Age=Number(this._profile.age);
+              this._Name=this._profile.name;
+              localStorage.setItem('Name',this._Name);
+              
+              if(this._profile.gender==Gender.male){
+                this.Male=true;
+              }
+            }
+            else{
+
+            }
+           
+          }
+
+        )
       }
+
     )
   }
   updateProfile(){
